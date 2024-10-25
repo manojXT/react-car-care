@@ -1,123 +1,100 @@
-.order-form {
-    padding: 20px;
-    font-family: Arial, sans-serif;
+/* General Container Style */
+.container {
+    width: auto;
+   margin: 10px;
+   margin-left: 10px;
   }
   
-  .header-section {
+  .toolbar {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  
-  .header-left h1 {
-    font-size: 24px;
-    margin: 0;
-  }
-  
-  .header-right p {
-    margin: 0;
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .form-section {
-    margin-bottom: 20px;
-  }
-  
-  .vendor-stock {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .vendor-stock input,
-  .vendor-stock select {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .part-input-group {
-    display: flex;
     align-items: center;
-    gap: 10px;
   }
   
-  .search-icon {
-    position: absolute;
-    margin-left: 10px;
-    color: #666;
-  }
-  
-  .input-part-name {
-    padding-left: 30px;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 200px;
-  }
-  
-  .input-qty,
-  .input-part-price,
-  .input-price,
-  .input-service-labour {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .input-qty {
-    width: 60px;
-  }
-  
-  .input-part-price,
-  .input-price {
-    width: 100px;
-  }
-  
-  .input-service-labour {
-    width: 200px;
-  }
-  
-  .add-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .add-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .table-section {
+  /* Summary Section */
+  .summarySection {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
     margin-top: 20px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   }
   
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  table th,
-  table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  thead th {
-    background-color: #f8f8f8;
+  .summaryItem {
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid #ddd;
     font-weight: bold;
   }
   
-  tbody td {
-    text-align: right;
+  .summaryItem:last-child {
+    border-right: none;
   }
   
-  tbody tr td:first-child {
-    text-align: left;
+  /* Tabs */
+  .tabs {
+    transition: 0.3s;
+    margin-top: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tabButton {
+    color: #007bff;
+    border-radius: 0;
+  }
+  
+  .activeTab {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Search Bar */
+  .searchBar {
+    margin-top: 20px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  /* Table */
+  .tableContainer {
+    margin-top: 20px;
+    overflow-x: auto;
+  }
+  
+  .table {
+    width: 100%;
+    min-width: 800px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tableHead {
+    background-color: #f1f3f5;
+    font-weight: bold;
+  }
+  
+  .tableRow {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .tableRow:last-child {
+    border-bottom: none;
+  }
+  
+  .tableCell {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .noData {
+    text-align: center;
+    padding: 20px;
+    color: #888;
   }
   

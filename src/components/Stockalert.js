@@ -1,25 +1,24 @@
 import React from 'react';
 import {
   Container, Toolbar, Typography, Grid, Button, TextField,
-  Table, TableHead, TableRow, TableCell, TableBody, Paper,
+  Table, TableHead, TableRow, TableCell, TableBody, Paper
 } from '@mui/material';
+import './Stock.css';
 import TabInventory from './TabInventory';
-import './Stock.css'
 
-function Order() {
+function Stockalert() {
+
   return (
     <Container className="container">
-    
-    
-        <Toolbar className="toolbar">
-          <Typography variant="h6" style={{ flexGrow: 1 }}>
-            Stock List
-          </Typography>
-          <Button variant="outlined" color="primary" style={{ marginLeft: 20 }}>
-            Export
-          </Button>
-        </Toolbar>
-   
+      {/* Toolbar */}
+      <Toolbar className="toolbar">
+        <Typography variant="h6" className="flexGrow">
+          Stock List
+        </Typography>
+        <Button variant="outlined" color="primary" className="exportButton">
+          Export
+        </Button>
+      </Toolbar>
 
       {/* Summary Section */}
       <Paper elevation={1} className="summarySection">
@@ -52,17 +51,12 @@ function Order() {
         <Table className="table">
           <TableHead className="tableHead">
             <TableRow className="tableRow">
-              <TableCell className="tableCell">Order No.</TableCell>
-              <TableCell className="tableCell">Order Date</TableCell>
-              <TableCell className="tableCell">Reg No.</TableCell>
               <TableCell className="tableCell">Job card No.</TableCell>
+              <TableCell className="tableCell">Vehicle No.</TableCell>
               <TableCell className="tableCell">Vendor Name</TableCell>
-              <TableCell className="tableCell">Order Value</TableCell>
-              <TableCell className="tableCell">Ordered Parts</TableCell>
-              <TableCell className="tableCell">Rejected Parts</TableCell>
-              <TableCell className="tableCell">Pending Parts</TableCell>
-              <TableCell className="tableCell">cancel date</TableCell>
-              <TableCell className="tableCell">Status</TableCell>
+              <TableCell className="tableCell">Inward No.</TableCell>
+              <TableCell className="tableCell">Inward Date</TableCell>
+              <TableCell className="tableCell">Purchase Price</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -79,4 +73,4 @@ function Order() {
   );
 }
 
-export default Order;
+export default Stockalert;

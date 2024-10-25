@@ -1,0 +1,99 @@
+/* General Container Style */
+.container {
+  width: auto;
+ margin: 10px;
+ margin-left: 10px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Summary Section */
+.summarySection {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.summaryItem {
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid #ddd;
+  font-weight: bold;
+}
+
+.summaryItem:last-child {
+  border-right: none;
+}
+
+/* Tabs */
+.tabs {
+  transition: 0.3s;
+  margin-top: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tabButton {
+  color: #007bff;
+  border-radius: 0;
+}
+
+.activeTab {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Search Bar */
+.searchBar {
+  margin-top: 20px;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Table */
+.tableContainer {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 800px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tableHead {
+  background-color: #f1f3f5;
+  font-weight: bold;
+}
+
+.tableRow {
+  border-bottom: 1px solid #ddd;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableCell {
+  padding: 10px;
+  text-align: center;
+}
+
+.noData {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+}
