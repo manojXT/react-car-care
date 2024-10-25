@@ -1,0 +1,166 @@
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  font-family: Arial, sans-serif;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  margin-right: 5px;
+  color: #888;
+}
+
+.search-input {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.stock-checkbox {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.stock-checkbox label {
+  margin-left: 5px;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+}
+
+.company-name {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.globe-icon {
+  color: #555;
+  margin-right: 5px;
+}
+
+.company-contact {
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .header-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .left-section {
+    margin-bottom: 10px;
+  }
+}
+
+.inward-form-container {
+  width: 90%;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+.breadcrumb {
+  margin-bottom: 10px;
+}
+
+.breadcrumb-link {
+  color: blue;
+  text-decoration: none;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.form-section {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.form-group:last-child {
+  margin-right: 0;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.vendor-group .vendor-input {
+  display: flex;
+  align-items: center;
+}
+
+.vendor-input input {
+  flex: 1;
+}
+
+.plus-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.plus-button:hover {
+  background-color: #0056b3;
+}
+
+.date-group .bill-date-input {
+  display: flex;
+  align-items: center;
+}
+
+.calendar-icon {
+  margin-left: 5px;
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-group {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
