@@ -1,14 +1,14 @@
+/* App.css */
 .app {
   display: flex;
+  flex-direction: column;
   height: 100vh;
-
 }
- 
+
 .main-layout {
   display: flex;
   flex: 1;
 }
- 
 .content {
   margin-left: 250px; /* Adjust based on sidebar width */
   padding: 20px;
@@ -16,46 +16,43 @@
   height: 100vh;
   overflow: auto;
 }
- 
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 60px;
-  background-color: rgb(108, 108, 112);
+  background-color: blue;
   color: whitesmoke;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
- 
 .sidebar {
   position: fixed;
   top: 60px; /* Same as header height */
   left: 0;
   width: 200px;
   height: calc(100vh - 60px);
-  background-color: #0f0769;
+  background-color: #333;
   color: white;
   padding: 20px;
 }
- 
+
 .sidebar ul {
   list-style-type: none;
   padding: 0;
 }
- 
+
 .sidebar ul li {
   margin: 15px 0;
 }
- 
+
 .sidebar ul li a {
   color: white;
   text-decoration: none;
 }
- 
 .content {
   margin-left: 200px;
   padding-top: 80px; /* Account for header height */
