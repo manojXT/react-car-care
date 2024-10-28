@@ -4,7 +4,7 @@ import {
   Table, TableHead, TableRow, TableCell, TableBody, Paper
 } from '@mui/material';
 import './Stock.css';
-import TabInventory from './TabInventory';
+import TabInventory from '../TabInventory';
 
 function Stock() {
 

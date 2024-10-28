@@ -1,0 +1,110 @@
+/* Sidebar container */
+.sidebar {
+  width: 60px; 
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  transition: width 0.3s ease; 
+  padding: 20px 0; 
+  color: #0396A6; 
+  position: fixed; 
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  overflow-x: hidden; 
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+  border:  1px solid;
+  border-top: none;
+  box-shadow: 0 0 15px black;
+  border-bottom-right-radius: 30px;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none; 
+}
+
+.sidebar.expanded {
+  width: 220px; 
+}
+
+/* Toggle button (logo) */
+.toggle-button {
+  background: none; 
+  border: none;
+  font-size: 24px;
+  margin-bottom: 20px;
+  cursor: pointer; 
+  color: #0396A6; 
+}
+
+/* Sidebar items */
+.sidebar-item {
+  display: flex;
+  align-items: center; 
+  width: 100%; 
+  padding: 12px 10px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #0396A6; 
+  border-radius: 5px; 
+}
+
+.sidebar-item:hover {
+  background-color: #0396A6; 
+  color: #ffffff; 
+}
+
+/* Accessibility focus styles */
+.sidebar-item:focus {
+  outline: none; 
+  box-shadow: 0 0 0 2px rgba(3, 150, 166, 0.5); 
+}
+
+/* Icon styling */
+.icon {
+  font-size: 24px; 
+}
+
+/* Label styling, hidden when collapsed */
+.label {
+  display: none; 
+  margin-left: 10px; 
+  color: #0396A6; 
+}
+
+.label:hover{
+  color: #ffffff;
+}
+
+.sidebar.expanded .label {
+  display: inline; 
+}
+
+/* Sub-menu styling */
+.sub-menu {
+  display: flex; 
+  flex-direction: column;
+  padding-left: 20px; 
+  margin-top: 5px; 
+  background-color: #ffffff; 
+}
+
+/* Sub-item styling */
+.sub-item {
+  padding: 5px 0;
+  color: #0396A6; 
+}
+
+.sub-item:hover {
+  color: white; 
+  background-color: #0396A6; 
+  border-radius: 5px; 
+}
+
+.sub-item:hover:not(.active){
+  background-color: #0396A6; 
+  color: white; 
+}

@@ -1,42 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Access from './components/Access';
-import Profile from './components/Profile';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import WorkshopProfile from './components/Workshop';
-import SettingsPage from './components/Settings';
-import SubscriptionTable from './components/Subscription';
-import Termsandcondition from './components/Terms and condition';
-import Reminders from './components/Reminder';
-import Associate from './components/Associate';
-import Integrations from './components/Integrations';
-import Users from './components/Users';
-import Stock  from './components/Stock';
-import Order from './components/Order';
-import TabInventory from './components/TabInventory';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Inward from './components/Inward';
-import Issued from './components/Issue';
-import Purchasereturn from './components/Purchasereturn';
-import Stockalert from './components/Stockalert';
-import Appointment from './components/Appointment';
-import Addorder from './components/Addorder';
-import Addinward from './components/Addinward';
-import Addissue from './components/Addissue';
-import Addreturn from './components/Addreturn';
 
+// Sidebar & Header Section
+import Header from './common/Header';
+import Sidebar from './common/Sidebar';
 
+// Inventory Section
+import Stock from './components/inventory/Stock';
+import Order from './components/inventory/Order';
+import TabInventory from './components/inventory/TabInventory';
+import Inward from './components/inventory/Inward';
+import Issued from './components/inventory/Issue';
+import Stockalert from './components/inventory/Stockalert';
+import Addorder from './components/inventory/Addorder';
+import Addinward from './components/inventory/Addinward';
+import Addissue from './components/inventory/Addissue';
+import Addreturn from './components/inventory/Addreturn';
 
+// Workshop Profile Section
+import Access from './components/workshop_profile/Access';
+import Profile from './components/workshop_profile/Profile';
+import WorkshopProfile from './components/workshop_profile/Workshop';
+import SettingsPage from './components/workshop_profile/Settings';
+import SubscriptionTable from './components/workshop_profile/Subscription';
+import Termsandcondition from './components/workshop_profile/Terms and condition';
+import Reminders from './components/workshop_profile/Reminder';
+import Associate from './components/workshop_profile/Associate';
+import Integrations from './components/workshop_profile/Integrations';
+import Users from './components/workshop_profile/Users';
+import Purchasereturn from './components/workshop_profile/Purchasereturn';
+import Appointment from './components/workshop_profile/Appointment';
 
 function App() {
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  const toggleSidebar = () => {
+    setShowSidebar(prevState => !prevState);
+  };
+
   return (
     <Router>
       <div className="app">
         <Header />
         <div className="main-layout">
-          <Sidebar />
+          <Sidebar showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
           <div className="content">
             <Routes>
               <Route path="/Access" element={<Access />} />
@@ -50,7 +59,7 @@ function App() {
               <Route path="/Reminders" element={<Reminders />} />
               <Route path="/Associate" element={<Associate />} />
               <Route path="/Integrations" element={<Integrations />} />
-              <Route path="/Stock" element={<Stock/>} />
+              <Route path="/Stock" element={<Stock />} />
               <Route path="/Order" element={<Order />} />
               <Route path="/Inward" element={<Inward />} />
               <Route path="/Issued" element={<Issued />} />
@@ -61,7 +70,6 @@ function App() {
               <Route path="/Addinward" element={<Addinward />} />
               <Route path="/Addissue" element={<Addissue />} />
               <Route path="/Addreturn" element={<Addreturn />} />
-              
             </Routes>
           </div>
         </div>

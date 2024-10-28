@@ -4,14 +4,6 @@
     padding: 20px;
   }
   
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ddd;
-  }
-  
   .workshop-name {
     font-size: 18px;
     font-weight: bold;
