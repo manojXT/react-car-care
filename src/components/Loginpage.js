@@ -57,8 +57,8 @@ export default function Loginpage() {
         .then((data) => {
           setLoading(false);  // Stop loading
           if (data.message === 'Login successful!') {
-            setMessage('Login successful!');  // Set success message
-            navigate('/Jobcard');  // Redirect to "Inward" page upon successful login
+            setMessage('Login successful!');  
+            navigate('/Dashboard');  
           } else {
             setErrors({ ...newErrors, custom_error: data.error });
           }

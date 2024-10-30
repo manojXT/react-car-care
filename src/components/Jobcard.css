@@ -1,329 +1,196 @@
-/* General Container Styles */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 .container {
+  display: flex;
+  flex-direction: column;
   padding: 20px;
-  background-color: #f9f9f9;
-  flex: 1;
+  background-color: #f5f5f5;
+  box-shadow: 3px 3px #a5a3a3;
   border-radius: 10px;
 }
 
-.search-row {
+/* Positioning the live-date container and add button */
+.live-date-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.live-date {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Styling for the add button */
+.add-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #457689;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #457689;
+}
+
+.add-button:active {
+  background-color: #457689; 
+}
+
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #484848;
+  border-radius: 8px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-family: 'DM Sans';
+}
+
+.searchInput {
+  flex-grow: 1;
+  margin-left: 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+.job-card {
+  width: 250px;
+  height: 140px;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-family: 'DM Sans';
+}
+
+.card-content {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 10px;
-  flex-wrap: wrap;
-}
-
-.search-row span{
-  margin-right: 40px;
-}
-.search-box {
-  position: relative;
-  width: 200px;
-  margin-left:100px;
-}
-
-.search-bar {
-  display: flex;
-  align-items: center;
-}
-
-.search-icon {
-  margin-left:100px;
-  color: #888;
-  position: relative;
-  font-size: 16px;
-}
-
-.search-input {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 50%;
-  padding: 10px 10px 10px 35px; /* Padding on the left to make space for the icon */
-  font-size: 16px;
-  outline: none;
-}
-.search-icon-down{
-  color: #888;
-  position:relative ;
-  font-size: 16px;
-  margin-top:25px ;
-}
-.form-row {
-  display: flex;
   gap: 10px;
-  margin-bottom: 10px;
 }
 
-.input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-.date-button {
-  padding: 10px;
-  font-size: 18px;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-
-
-/* Input Fields */
-.input {
-  flex: 1;
-  border: 1px solid #ccc;
-  padding: 20px;
-  height: 40px;
-  min-width: 40px;
-  margin-right: 5px;
-  align-items: center;
-}
-
-.half-input {
-  min-width: 45%;
-}
-
-.wide-input {
-  min-width:100%;
-}
-
-.select-box{
-  position: relative;
-  width: 200px;
-  margin-left:100px; 
-}
-
-/* Buttons */
-.add-button,
-.date-button,
-.add-driver-button {
-  background-color: #007bff;
+.icon-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  width: 40px;
-  border-radius: 5px;
-  color: white;
+  width: 70px;
+  height: 60px;
+  margin-right: 5px;
 }
 
-.add-button-text,
-.date-button-text {
-  color: white;
-  font-size: 20px;
+.rupee-icon {
+  width: 100%;
+  height: 100%;
 }
 
-.add-driver-button {
-  margin-left: 10px;
-}
-
-.payment-section {
-  margin-top: 20px;
-}
-
-.section-title {
+.text-container .title {
   font-size: 16px;
+  margin: 0;
+}
+
+.text-container .value {
+  font-size: 20px;
   font-weight: bold;
-  margin-bottom: 10px;
-  color: #007bff;
+  margin: 0;
 }
 
-.payment-row {
+.text-container .amount {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Custom card backgrounds */
+.req-estimate-card{
+  background: linear-gradient(to right, #A80000, #000000);
+} .estimate-card{
+  background: linear-gradient(to right, #457689, #000000);
+} 
+.estimate-reject-card{
+  background: linear-gradient(to right, #915a3c, #000000);
+}
+.RFD-card{
+  background: linear-gradient(to right, #ffc5d9, #000000);
+}
+.approval-card{
+  background: linear-gradient(to right, #e1c7a5, #000000);
+} 
+.delivered-card {
+  background: linear-gradient(to right, #457689, #000000);
+}
+
+.table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+.row {
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
 }
 
-.payment-input {
+.headerRow {
+  font-weight: bold;
+  background: #f3f3f3;
+}
+
+.cell {
   flex: 1;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  height: 40px;
-  margin-right: 10px;
-  min-width: 15%;
+  padding: 8px;
+  font-size: 14px;
+  color: #333;
+  text-align: left;
 }
 
-.card-container {
-  padding-bottom: 20px;
+.statusCell {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.date-text {
+.statusText {
   font-size: 14px;
   color: #555;
 }
 
-/* Cards */
-.card {
-  background-color: #f9f9f9;
-  padding: 15px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
+/* Small screens */
+@media (max-width: 768px) {
+  .cardsContainer {
+      flex-direction: column;
+  }
 
-.card-title {
-  font-size: 16px;
-  font-weight: bold;
-}
+  .job-card {
+      max-width: 100%;
+  }
 
-.card-text {
-  font-size: 14px;
-  color: #333;
-}
+  .row, .headerRow {
+      flex-wrap: wrap;
+  }
 
-.add-button {
-  background-color: #007aff;
-  border-radius: 5px;
-  padding: 5px;
-}
-
-/* Footer */
-.footer-container {
-  display: flex;
-  flex-direction: row;
-  background-color: white;
-  border-top: 1px solid #ddd;
-}
-
-.footer-button {
-  background-color: #007bff;
-  padding: 10px;
-  border-radius: 4px;
-  margin-right: 5px;
-}
-
-.footer-button-primary {
-  background-color: #007bff;
-  padding: 10px;
-  border-radius: 4px;
-}
-
-.button-text {
-  color: white;
-  font-size: 10px;
-}
-
-/* Modal Styles */
-.modal-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  flex: 1;
-}
-
-.modal-content {
-  width: 30%;
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.modal-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.color-grid {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.color-button {
-  width: 50px;
-  height: 50px;
-  margin: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.color-label {
-  font-size: 12px;
-  color: #000;
-  text-align: center;
-}
-
-.selected-button {
-  border: 2px solid #007bff;
-}
-
-.close-button {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #007bff;
-  border-radius: 5px;
-}
-
-.close-button-text {
-  color: white;
-  font-size: 16px;
-}
-
-/* Form Elements */
-.form-row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.picker-wrapper {
-  flex: 1;
-  margin-right: 10px;
-}
-
-.input {
-  margin-top: 10px;
-  border-bottom: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.dropdown-box {
-  flex: 1;
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-}
-
-.picker {
-  flex: 1;
-  border: 1px solid #000;
-}
-
-.dropdown-text {
-  font-size: 16px;
-}
-
-.color-box {
-  height: 30px;
-  width: 30px;
-  margin-left: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #000;
-  border-radius: 5px;
-}
-
-.label {
-  margin: 10px 10px 5px 0;
-  font-size: 12px;
-  font-weight: bold;
+  .cell {
+      flex: 1 1 100%;
+  }
 }

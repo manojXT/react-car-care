@@ -1,303 +1,184 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import './Jobcard.css'; // Import the CSS file
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import './Jobcard.css';
+import Approval from './Icons/Approval pending.png';
+import Delivery from './Icons/Delivered.png';
+import EstReject from './Icons/est rejected.png';
+import Estimate from './Icons/Estiamte.png';
+import RFE from './Icons/Req for estimatioin.png';
+import RFD from './Icons/Ready for delivery.png';
+import { useNavigate } from 'react-router-dom';
 
-function VehicleForm() {
-  const [checked, setChecked] = useState(false);
-  const [selectedColor, setSelectedColor] = useState(null);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [fuelType, setFuelType] = useState('');
-  const [isDropdownVisible, setDropdownVisible] = useState(false);
-  const [serviceType, setServiceType] = useState('');
-  const [serviceAdvisor, setServiceAdvisor] = useState('');
-  const [mobileNumber, setMobileNumber] = useState('+91');
-  const [altMobileNumber, setAltMobileNumber] = useState('+91');
-  const [selectedInsurance, setSelectedInsurance] = useState('');
-  const [deliveryDate, setDeliveryDate] = useState(new Date());
-  const [showDatePicker, setShowDatePicker] = useState(false);
-  const [paymentDate, setPaymentDate] = useState(new Date());
-  const [showPaidDatePicker, setPaidDatePicker] = useState(false);
+const JobCard = () => {
 
-  const colors = [
-    { value: 'white', backgroundColor: '#ffffff' },
-    { value: 'gray', backgroundColor: '#808080' },
-    { value: 'darkgray', backgroundColor: '#A9A9A9' },
-    { value: 'blue', backgroundColor: '#0000ff' },
-    { value: 'maroon', backgroundColor: '#800000' },
-    { value: 'silver', backgroundColor: '#C0C0C0' },
-    { value: 'brown', backgroundColor: '#A52A2A' },
-    { value: 'orange', backgroundColor: '#FFA500' },
-    { value: 'red', backgroundColor: '#FF0000' },
-    { value: 'black', backgroundColor: '#000000' },
-  ];
+    const navigation = useNavigate();
 
-  const fuelOptions = [
-    { label: 'Petrol', value: 'P' },
-    { label: 'Diesel', value: 'D' },
-    { label: 'Electric', value: 'EV' },
-    { label: 'LPG', value: 'L' },
-  ];
+    const [currentDate, setCurrentDate] = useState(new Date());
+    const [data, setData] = useState([]);
+    const [searchQuery, setSearchQuery] = useState("");
 
-  const onDateChange = (event) => {
-    setDeliveryDate(event.target.value);
-  };
+    // Fetch job card data from Flask API
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch("http://localhost:5000/api/jobcards");
+                const result = await response.json();
+                setData(result);
+            } catch (error) {
+                console.error("Error fetching job card data:", error);
+            }
+        };
+        fetchData();
+    }, []);
 
-  const onPaymentDateChange = (event) => {
-    setPaymentDate(event.target.value);
-  };
+    useEffect(() => {
+        const timerId = setInterval(() => {
+            setCurrentDate(new Date());
+        }, 1000 * 60 * 60 * 24); // Update every 24 hours
 
-  const [year, setYear] = useState(new Date().getFullYear());
+        return () => clearInterval(timerId);
+    }, []);
 
-  return (
-    <div className="vehicle-form-container">
-      {/* Search Bar */}
-      <div className="search-row">
-        <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
-        <span>T/R Number / Other Number</span>
-        <FaSearch className="search-icon" />
-        <input className="search-input" type="text" placeholder="Search Using Registration No. / Customer Name / Mobile No. / Email / Corporate Name / Vehicle / VIN" />
-      </div>
+    const formatDate = (date) => {
+        const options = { year: "numeric", month: "long", day: "numeric" };
+        return date.toLocaleDateString(undefined, options);
+    };
 
-      {/* Vehicle Details Form */}
-      <div className="form">
-        <div className="form-row">
-          <input type="text" className="input" placeholder="Registration No." />
-          <input type="text" className="input" placeholder="Odometer In" />
-          <input type="text" className="input" placeholder="Avg KMS / Day" />
-          <input type="text" className="input" placeholder="VIN" />
-          <input type="text" className="input" placeholder="Engine No." />
-        </div>
-
-        <div>
-          <div className="form-row">
-            <input type="text" className="input" placeholder="Find Vehicle" />
-            <input type="text" className="input" placeholder="Make" />
-            <input type="text" className="input" placeholder="Model" />
-            <input
-              type="number"
-              className="input"
-              placeholder="Year"
-              value={year}
-              onChange={(e) => setYear(e.target.value)} /* Updates the year value */
-              min="1900" /* Optional: restrict minimum year */
-              max={new Date().getFullYear()} /* Optional: restrict to current year or earlier */
-            />
-            <input type="text" className="input" placeholder="Variant" />
-          </div>
-        </div>
-
-        {/* Vehicle Color Picker */}
-        <div className="color-picker-container">
-          <span>Vehicle Colour</span>
-          <div
-            className="color-box"
-            style={{ backgroundColor: selectedColor || '#ffffff' }}
-            onClick={() => setIsModalVisible(true)}
-          />
-          {isModalVisible && (
-            <div className="modal">
-              <div className="modal-content">
-                <h4>Select Vehicle Colour</h4>
-                <div className="color-grid">
-                  {colors.map((color) => (
-                    <div
-                      key={color.value}
-                      className={`color-button ${selectedColor === color.value ? 'selected' : ''}`}
-                      style={{ backgroundColor: color.backgroundColor }}
-                      onClick={() => {
-                        setSelectedColor(color.value);
-                        setIsModalVisible(false);
-                      }}
-                    />
-                  ))}
+    return (
+        <div className="container">
+            <div className="live-date-container">
+                <div className="live-date">
+                    {formatDate(currentDate)}
                 </div>
-                <button onClick={() => setIsModalVisible(false)}>Close</button>
-              </div>
+                <button className="add-button" onClick={() => navigation('/addjobcard')}>+</button>
             </div>
-          )}
-          {/* Fuel Type Dropdown */}
-          <div className="fuel-picker-wrapper">
-            <span>Select Fuel Type</span>
-            <div className="dropdown-box" onClick={() => setDropdownVisible(true)}>
-              {fuelType ? fuelOptions.find((option) => option.value === fuelType)?.label : 'Select'}
+
+
+
+            <div className="cardsContainer">
+                {/* Job Cards */}
+                <div className="job-card req-estimate-card">
+                    <div className="icon-container">
+                        <img src={RFE} alt="Req for Estimation" className="rupee-icon" />
+                    </div>
+                    <div className="text-container">
+                        <p className="title">Req for Estimation</p>
+                        <p className="value">0</p>
+                        <p className="amount">₹0</p>
+                    </div>
+                </div>
+
+                <div className="job-card estimate-card">
+                    <div className="icon-container">
+                        <img src={Estimate} alt="Estimate" className="rupee-icon"/>
+                    </div>
+                    <div className="text-container">
+                        <p className="title">Estimate</p>
+                        <p className="value">0</p>
+                        <p className="amount">₹0</p>
+                    </div>
+                </div>
+
+                <div className="job-card estimate-reject-card">
+                    <div className="icon-container">
+                        <img src={EstReject} alt="Estimation Reject" className="rupee-icon"/>
+                    </div>
+                    <div className="text-container">
+                        <p className="title">Estimation Reject</p>
+                        <p className="value">0</p>
+                        <p className="amount">₹0</p>
+                    </div>
+                </div>
+
+                <div className="job-card RFD-card">
+                    <div className="icon-container">
+                        <img src={RFD} alt="Ready for Delivery" className="rupee-icon"/>
+                    </div>
+                    <div className="text-container">
+                        <p className="title">Ready for Delivery</p>
+                        <p className="value">0</p>
+                        <p className="amount">₹0</p>
+                    </div>
+                </div>
+
+                <div className="job-card approval-card">
+                    <div className="icon-container">
+                        <img src={Approval} alt="Approval Pending" className="rupee-icon"/>
+                    </div>
+                    <div className="text-container">
+                        <p className="title">Approval Pending</p>
+                        <p className="value">0</p>
+                        <p className="amount">₹0</p>
+                    </div>
+                </div>
+
+                <div className="job-card delivered-card">
+                    <div className="icon-container">
+                        <img src={Delivery} alt="Delivered" className="rupee-icon"/>
+                    </div>
+                    <div className="text-container">
+                        <p className="title">Delivered</p>
+                        <p className="value">0</p>
+                        <p className="amount">₹0</p>
+                    </div>
+                </div>
             </div>
-            {isDropdownVisible && (
-              <div className="modal">
-                <div className="modal-content">
-                  <h4>Select Fuel Type</h4>
-                  <div className="dropdown-items">
-                    {fuelOptions.map((option) => (
-                      <div
-                        key={option.value}
-                        className="dropdown-item"
-                        onClick={() => {
-                          setFuelType(option.value);
-                          setDropdownVisible(false);
-                        }}
-                      >
-                        {option.label}
-                      </div>
+            <div className="searchContainer">
+                <FaSearch size={20} color="#ccc" />
+                <input
+                    type="text"
+                    className="searchInput"
+                    placeholder="Customer Name / Mobile No / Vehicle No / Claim No."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+            </div>
+
+            <div className="table">
+                <div className="row headerRow">
+                    <span className="cell">RFE No.</span>
+                    <span className="cell">Job Card No.</span>
+                    <span className="cell">Reg. No.</span>
+                    <span className="cell">Invoice No.</span>
+                    <span className="cell">Service Type</span>
+                    <span className="cell">Vehicle</span>
+                    <span className="cell">Status</span>
+                    <span className="cell">Customer Name</span>
+                    <span className="cell">Mobile No.</span>
+                    <span className="cell">Arrival Date</span>
+                    <span className="cell">Arrival Time</span>
+                </div>
+
+                {data
+                    .filter(item =>
+                        item.customerName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        item.mobileNo.includes(searchQuery) ||
+                        item.vehicle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        item.claimNo.toLowerCase().includes(searchQuery.toLowerCase())
+                    )
+                    .map((item, index) => (
+                        <div key={index} className="row">
+                            <span className="cell">{item.rfeNo}</span>
+                            <span className="cell">{item.jobCardNo}</span>
+                            <span className="cell">{item.regNo}</span>
+                            <span className="cell">{item.invoiceNo}</span>
+                            <span className="cell">{item.serviceType}</span>
+                            <span className="cell">{item.vehicle}</span>
+                            <span className="cell statusCell">
+                                <FontAwesomeIcon icon={faCircle} size="xs" color={item.statusColor} />
+                                <span className="statusText">{item.status}</span>
+                            </span>
+                            <span className="cell">{item.customerName}</span>
+                            <span className="cell">{item.mobileNo}</span>
+                            <span className="cell">{item.arrivalDate}</span>
+                            <span className="cell">{item.arrivalTime}</span>
+                        </div>
                     ))}
-                  </div>
-                  <button onClick={() => setDropdownVisible(false)}>Close</button>
-                </div>
-              </div>
-            )}
-          </div>
+            </div>
         </div>
-        {/* Service Type and Advisor */}
-        <select
-          className="input"
-          value={serviceType}
-          onChange={(e) => setServiceType(e.target.value)}
-        >
-          <option value="">Service Type</option>
-          <option value="general">General Service</option>
-          <option value="oil_change">Oil Change</option>
-        </select>
+    );
+};
 
-        <select
-          className="input"
-          value={serviceAdvisor}
-          onChange={(e) => setServiceAdvisor(e.target.value)}
-        >
-          <option value="">Service Advisor</option>
-          <option value="advisor_a">Advisor A</option>
-          <option value="advisor_b">Advisor B</option>
-        </select>
-      </div>
-      {/* Customer Concerns */}
-      <textarea
-        className="input"
-        placeholder="Enter Customer Concerns / Complaints (e.g. A/C not working)"
-        rows={2}
-      />
-      <button className="add-service-button" onClick={() => console.log('Add Service')}>Add Service</button>
-
-      {/* Customer Details Section */}
-      <div className="form-row">
-        <input type="text" className="input" placeholder="Customer Name" />
-        <input
-          type="text"
-          className="input"
-          placeholder="Mobile Number"
-          value={mobileNumber}
-          onChange={(e) => setMobileNumber(e.target.value)}
-        />
-      </div>
-
-      <div className="form-row">
-        <input
-          className="input half-input"
-          placeholder="Alternative Mobile No."
-          value={altMobileNumber}
-          onChange={(e) => setAltMobileNumber(e.target.value)}
-        />
-        <input className="input half-input" placeholder="Email ID" />
-      </div>
-
-      <div className="form-row">
-        <input
-          className="input half-input"
-          placeholder="Est. Delivery Date *"
-          readOnly
-          value={deliveryDate.toDateString()}
-        />
-        <button onClick={() => setShowDatePicker(true)} className="date-button">📅</button>
-        {showDatePicker && (
-          <input
-            type="date"
-            value={deliveryDate.toISOString().split('T')[0]}
-            onChange={onDateChange}
-          />
-        )}
-      </div>
-
-      <div className="form-row">
-        <select
-          value={selectedInsurance}
-          className="picker"
-          onChange={(e) => setSelectedInsurance(e.target.value)}
-        >
-          <option value="">Select Insurance Company</option>
-          <option value="insurance_a">Insurance A</option>
-          <option value="insurance_b">Insurance B</option>
-        </select>
-
-        <button className="add-button">+</button>
-        <button
-          className="add-driver-button"
-          onClick={() => console.log('Add Contact / Driver Name')}
-        >
-          Add Contact / Driver Name
-        </button>
-      </div>
-
-      <div className="payment-section">
-        <h4 className="section-title">Advance Payment</h4>
-
-        <div className="payment-row">
-          {/* Cash Input */}
-          <input
-            type="text"
-            className="payment-input wide-input"
-            placeholder="Cash"
-          />
-
-          {/* Bank Picker */}
-          <select className="payment-input half-input">
-            <option value="">Bank Name</option>
-            <option value="bank_a">Bank A</option>
-            <option value="bank_b">Bank B</option>
-          </select>
-
-          {/* Cheque No Input */}
-          <input
-            type="text"
-            className="payment-input half-input"
-            placeholder="Cheque No."
-          />
-
-          {/* Amount Input */}
-          <input
-            type="text"
-            className="payment-input half-input"
-            placeholder="Amount ₹"
-          />
-
-          {/* Date Picker */}
-          <input
-            type="text"
-            className="payment-input half-input"
-            placeholder="Date"
-            readOnly
-            value={paymentDate.toDateString()}
-          />
-          <button
-            className="date-button"
-            onClick={() => setPaidDatePicker(true)}
-          >
-            📅
-          </button>
-
-          {/* Show Date Picker if clicked */}
-          {showPaidDatePicker && (
-            <input
-              type="date"
-              value={paymentDate.toISOString().split('T')[0]}
-              onChange={onPaymentDateChange}
-            />
-          )}
-        </div>
-      </div>
-
-      {/* Footer */}
-      <div className="footer">
-        <button>Give Estimation Later</button>
-        <button>Prepare Estimation Now</button>
-      </div>
-    </div>
-  );
-}
-
-export default VehicleForm;
+export default JobCard;

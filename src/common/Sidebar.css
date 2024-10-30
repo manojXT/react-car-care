@@ -1,4 +1,6 @@
 /* Sidebar container */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 .sidebar {
   width: 60px; 
   height: 100vh; 
@@ -18,8 +20,10 @@
   scrollbar-width: none; 
   border:  1px solid;
   border-top: none;
+  border-left: none;
   box-shadow: 0 0 15px black;
   border-bottom-right-radius: 30px;
+  font-family: 'DM Sans';
 }
 
 .sidebar::-webkit-scrollbar {
