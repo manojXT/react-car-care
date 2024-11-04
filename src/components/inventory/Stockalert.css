@@ -1,8 +1,8 @@
 /* General Container Style */
 .container {
-    width: auto;
-   margin: 10px;
-   margin-left: 10px;
+    max-width: auto;
+   margin-right: 60px;
+   padding-bottom: 30px;
   }
   
   .toolbar {

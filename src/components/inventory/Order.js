@@ -5,6 +5,7 @@ import {
 } from '@mui/material';
 // import TabInventory from './TabInventory';
 import './Stock.css'
+import TabInventory from './TabInventory';
 
 function Order() {
   return (
@@ -36,10 +37,11 @@ function Order() {
         </Grid>
       </Paper>
 
-      {/* Tabs Section 
-      <TabInventory />*/}
+      {/* Tabs Section */}
+      <TabInventory />
 
-      {/* Search Bar */}
+    
+    {/* Search Bar */}
       <TextField
         fullWidth
         variant="outlined"

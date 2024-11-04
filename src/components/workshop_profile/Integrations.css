@@ -1,9 +1,17 @@
 /* General layout */
 .integrations {
     font-family: Arial, sans-serif;
-    padding: 20px;
+    max-width: auto;
   }
   
+  .tabs nav ul li {
+    padding-top: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #666;
+  }
+  
+
   h2 {
     font-size: 20px;
     margin-bottom: 20px;

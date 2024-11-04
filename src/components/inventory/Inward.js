@@ -1,93 +1,76 @@
 import React from 'react';
-import './Inward.css';  // Ensure CSS file is correctly imported
-import { FaSearch, FaGlobe, FaPlus, FaCalendarAlt } from 'react-icons/fa'; // Import icons
+import {
+  Container, Toolbar, Typography, Grid, Button, TextField,
+  Table, TableHead, TableRow, TableCell, TableBody, Paper
+} from '@mui/material';
+import './Stock.css';
+import TabInventory from './TabInventory';
 
-const Inward = () => {
-    return (
-        <div>
-            {/* Header Section */}
-            <div className="header-section">
-                {/* Left Section: Search bar and checkbox */}
-                <div className="left-section">
-                    <div className="search-bar">
-                        <FaSearch className="search-icon" />
-                        <input
-                            type="text"
-                            placeholder="Register No. / Job Card"
-                            className="search-input"
-                        />
-                    </div>
-                    <div className="stock-checkbox">
-                        <input type="checkbox" id="stock" />
-                        <span>Stock</span>
-                    </div>
-                </div>
+function Stockalert() {
 
-                {/* Right Section: Company info */}
-                <div className="right-section">
-                    <span className="company-name">KG CAR CARE, COIMBATORE</span>
-                    <FaGlobe className="globe-icon" />
-                    <span className="company-contact">9384530403</span>
-                </div>
-            </div>
+  return (
+    <Container className="container">
+      {/* Toolbar */}
+      <Toolbar className="toolbar">
+        <Typography variant="h6" className="flexGrow">
+          Stock List
+        </Typography>
+        <Button variant="outlined" color="primary" className="exportButton">
+          Export
+        </Button>
+      </Toolbar>
 
-            {/* Inward Form Section */}
-            <div className="inward-form-container">
-                {/* Breadcrumb */}
-                <div className="breadcrumb">
-                    <span>Home &raquo; Inward </span>
-                </div>
+      {/* Summary Section */}
+      <Paper elevation={1} className="summarySection">
+        <Grid container spacing={2}>
+          <Grid item xs={4}>
+            <Typography variant="body1" className="summaryItem">Unique Part Nos: 0</Typography>
+          </Grid>
+          <Grid item xs={4}>
+            <Typography variant="body1" className="summaryItem">Total Stock Items: 0.00</Typography>
+          </Grid>
+          <Grid item xs={4}>
+            <Typography variant="body1" className="summaryItem">Stock Value: 0.00</Typography>
+          </Grid>
+        </Grid>
+      </Paper>
 
-                {/* Form Section */}
-                <div className="form-section">
-                    <div className="form-row">
-                        <div className="form-group">
-                            <label>Delivery Receipt :</label>
-                            <input type="text" />
-                        </div>
-                        <div className="form-group">
-                            <label>Bill No :</label>
-                            <input type="text" />
-                        </div>
-                    </div>
+      {/* Tabs Section */}
+      <TabInventory />
 
-                    <div className="form-row">
-                        <div className="form-group">
-                            <label>Tax Type :</label>
-                            <select>
-                                <option value="gst">GST</option>
-                                <option value="vat">VAT</option>
-                                <option value="none">None</option>
-                            </select>
-                        </div>
-                        <div className="form-group vendor-group">
-                            <label>Vendor :</label>
-                            <div className="vendor-input">
-                                <input type="text" />
-                                <button className="plus-button">
-                                    <FaPlus />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+      {/* Search Bar */}
+      <TextField
+        fullWidth
+        variant="outlined"
+        label="Search"
+        className="searchBar"
+      />
 
-                    <div className="form-row">
-                        <div className="form-group">
-                            <label>Date :</label>
-                            <input type="text" value="16/10/2024" readOnly />
-                        </div>
-                        <div className="form-group date-group">
-                            <label>Bill Date :</label>
-                            <div className="bill-date-input">
-                                <input type="text" value="16-10-2024" readOnly />
-                                <FaCalendarAlt className="calendar-icon" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
+      {/* Stock Table */}
+      <Paper elevation={1} className="tableContainer">
+        <Table className="table">
+          <TableHead className="tableHead">
+            <TableRow className="tableRow">
+              <TableCell className="tableCell">Job card No.</TableCell>
+              <TableCell className="tableCell">Vehicle No.</TableCell>
+              <TableCell className="tableCell">Vendor Name</TableCell>
+              <TableCell className="tableCell">Inward No.</TableCell>
+              <TableCell className="tableCell">Inward Date</TableCell>
+              <TableCell className="tableCell">Purchase Price</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {/* Placeholder for empty data */}
+            <TableRow className="tableRow">
+              <TableCell colSpan={12} className="noData">
+                No data available
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </Paper>
+    </Container>
+  );
+}
 
-export default Inward;
+export default Stockalert;

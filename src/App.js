@@ -18,6 +18,7 @@ import Addorder from './components/inventory/Addorder';
 import Addinward from './components/inventory/Addinward';
 import Addissue from './components/inventory/Addissue';
 import Addreturn from './components/inventory/Addreturn';
+import Addstock from './components/inventory/Addstock';
 
 // Workshop Profile Section
 import Access from './components/workshop_profile/Access';
@@ -52,7 +53,8 @@ function App() {
               <Route path="/TabInventory" element={<TabInventory />} />
               <Route path="/Users" element={<Users />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/Workshop" element={<WorkshopProfile />} />
+              <Route path="/workshop" element={<workshop />} />
+              <Route path="/Access" element={<WorkshopProfile />} />
               <Route path="/Settings" element={<SettingsPage />} />
               <Route path="/Subscription" element={<SubscriptionTable />} />
               <Route path="/Terms and condition" element={<Termsandcondition />} />
@@ -70,6 +72,7 @@ function App() {
               <Route path="/Addinward" element={<Addinward />} />
               <Route path="/Addissue" element={<Addissue />} />
               <Route path="/Addreturn" element={<Addreturn />} />
+              <Route path="/Addstock" element={<Addstock />} />
             </Routes>
           </div>
         </div>

@@ -3,7 +3,16 @@
     border-radius: 8px;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    max-width: auto;
   }
+
+  .tabs nav ul li {
+    padding-top: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #666;
+  }
+  
   
   .reminder-title {
     font-size: 18px;
@@ -27,8 +36,7 @@
 .reminder-card {
     border-radius: 8px;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  }
+   }
   
   .reminder-title {
     font-size: 18px;

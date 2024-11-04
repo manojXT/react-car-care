@@ -2,17 +2,23 @@
 
 .profile-page {
   font-family: Arial, sans-serif;
-  padding: 20px;
-  max-width: auto;
-  margin: 0 auto;
+   max-width: auto;
+     }
+
+ .tabs nav ul li {
+  margin-right: 60px;
+     padding-top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #707070 ;
 }
+  
 
 .profile-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;    
   padding-bottom: 10px;
 }
 
@@ -67,7 +73,6 @@
 }
 
 .form-group input[type="date"] {
-  padding: 8px;
   position: relative;
   background: urlno-repeat right 10px center;
   background-size: 20px;
