@@ -1,0 +1,21 @@
+/* Reportsnavbar.css */
+.nav-bar {
+    width: auto;            /* Full width of the viewport */
+    margin-top: 30px;
+    background-color: #f8f9fa; /* Light background color */
+    padding-bottom: 10px;
+    text-align: left;     
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for style */
+    z-index: 1000;          /* Ensures it appears above other elements */
+}
+
+.nav-bar a {
+    margin: 0 20px;         /* Space between each link */
+    color: #007bff;         /* Link color */
+    text-decoration: none;  /* Remove underline */
+    font-weight: bold;      /* Bold text */
+}
+
+.nav-bar a:hover {
+    text-decoration: underline; /* Underline on hover */
+}

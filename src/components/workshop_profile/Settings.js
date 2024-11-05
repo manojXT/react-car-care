@@ -4,15 +4,15 @@ import Access from './Access';
 
 const SettingsPage = () => {
   const features = [
-    { label: 'Notifications (SMS, WhatsApp, Email)', icon: 'notification-icon.png' },
-    { label: 'Custom Fields', icon: 'custom-fields-icon.png' },
-    { label: 'Number Pre-generation (Invoice, Credit / Debit Note)', icon: 'pregeneration-icon.png' },
-    { label: 'Mobile App', icon: 'mobile-app-icon.png' },
-    { label: 'Book Appointment', icon: 'appointment-icon.png' },
-    { label: 'Inventory Management', icon: 'inventory-icon.png' },
-    { label: 'Digital Payments', icon: 'payments-icon.png' },
-    { label: 'Invoice', icon: 'invoice-icon.png' },
-    { label: 'Other Features', icon: 'other-features-icon.png' },
+    { label: 'Notifications (SMS, WhatsApp, Email)', },
+    { label: 'Custom Fields',  },
+    { label: 'Number Pre-generation (Invoice, Credit / Debit Note)',  },
+    { label: 'Mobile App',},
+    { label: 'Book Appointment',  },
+    { label: 'Inventory Management', },
+    { label: 'Digital Payments',  },
+    { label: 'Invoice',  },
+    { label: 'Other Features',  },
   ];
 
   return (

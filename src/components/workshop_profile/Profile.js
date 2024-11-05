@@ -13,32 +13,32 @@ const Profile = () => {
         <form className="profile-form">
           <div className="form-group">
             <label htmlFor="workshopName">Workshop Name</label>
-            <input type="text" id="workshopName" value="KG CAR CARE" readOnly />
+            <input type="text" id="workshopName" />
           </div>
 
           <div className="form-group">
             <label htmlFor="ownerName">Owner Name</label>
-            <input type="text" id="ownerName" value="Manikandan" readOnly />
+            <input type="text" id="ownerName"  />
           </div>
 
           <div className="form-group">
             <label htmlFor="email">Email ID</label>
-            <input type="email" id="email" value="kgcarcarecbe@gmail.com" readOnly />
+            <input type="email" id="email"  />
           </div>
 
           <div className="form-group">
             <label htmlFor="ownerMobile">Owner Mobile No.</label>
-            <input type="tel" id="ownerMobile" value="+91 9384530403" readOnly />
+            <input type="tel" id="ownerMobile" />
           </div>
 
           <div className="form-group">
             <label htmlFor="contactPerson">Contact Person</label>
-            <input type="text" id="contactPerson" value="Manikandan" readOnly />
+            <input type="text" id="contactPerson"  />
           </div>
 
           <div className="form-group">
             <label htmlFor="contactNumber">Contact Number</label>
-            <input type="tel" id="contactNumber" value="+91 9384530403" readOnly />
+            <input type="tel" id="contactNumber"  />
           </div>
 
           <div className="form-group">

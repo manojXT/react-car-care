@@ -8,7 +8,7 @@ const Addorder = () => {
   return (
     <div className="container">
       <div className="breadcrumbs">
-        <span>Parts</span> &gt; <span>Order</span>
+        
       </div>
 
       {/* Search bar and input for Quantity */}
@@ -25,7 +25,7 @@ const Addorder = () => {
           value={qty}
           onChange={(e) => setQty(e.target.value)}
         />
-        <button className="add-btn">+</button>
+        <button className="add-btn">Add</button>
       </div>
 
       {/* Table */}

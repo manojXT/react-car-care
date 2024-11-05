@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import './Addinward.css';
+import './Addtransfer.css';
 
-const Addinward = () => {
+const Addtransfer = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [qty, setQty] = useState('');
 
@@ -59,4 +59,4 @@ const Addinward = () => {
         );
     };
 
-    export default Addinward;
+    export default Addtransfer;

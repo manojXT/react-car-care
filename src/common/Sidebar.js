@@ -57,7 +57,7 @@ const Sidebar = () => {
           <div className="sub-item" onClick={() => navigate("/Addinward")}>Inward</div>
           <div className="sub-item" onClick={() => navigate("/Addissue")}>Issue</div>
           <div className="sub-item" onClick={() => navigate("/Addreturn")}>Purchase Return</div>
-          <div className="sub-item" onClick={() => navigate("/Access")}>Stock Transfer</div>
+          <div className="sub-item" onClick={() => navigate("/Addtransfer")}>Stock Transfer</div>
           <div className="sub-item" onClick={() => navigate("/Stockalert")}>Stock Alert</div>
           <div className="sub-item" onClick={() => navigate("/Addstock")}>Upload Stock</div>
         </div>
@@ -92,11 +92,11 @@ const Sidebar = () => {
         {isExpanded && <span className="label">Workshop Profile</span>}
       </div>
 
-      <div className="sidebar-item" onClick={() => {toggleExpand('reports');navigate("/Access")}}>
+      <div className="sidebar-item" onClick={() => {toggleExpand('reports');navigate("/Reportsnavnbar")}}>
         <span className="icon">📊</span>
         {isExpanded && <span className="label">Reports</span>}
       </div>
-    </div>
+     </div>
   );
 };
 

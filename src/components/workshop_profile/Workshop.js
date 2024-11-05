@@ -2,7 +2,7 @@ import React from 'react';
 import './Workshop.css';
 import Access from './Access';
 
-const WorkshopProfile = () => {
+const Workshop = () => {
   return (
     <div className="Workshop">
       <header className="workshop-header">
@@ -22,68 +22,68 @@ const WorkshopProfile = () => {
           <div className="form-row">
             <div className="form-group">
               <label>Full Name for Pickup/Delivery</label>
-              <input type="text" value="1-A Saraswathipatti to..." readOnly />
+              <input type="text"  />
             </div>
 
             <div className="form-group">
               <label>City / Street</label>
-              <input type="text" value="Water Tank Stop" readOnly />
+              <input type="text"  />
             </div>
 
             <div className="form-group">
               <label>Location</label>
-              <input type="text" value="Thudiyalur Road" readOnly />
+              <input type="text" />
             </div>
           </div>
 
           <div className="form-row">
             <div className="form-group">
               <label>State</label>
-              <input type="text" value="Tamil Nadu" readOnly />
+              <input type="text"  />
             </div>
 
             <div className="form-group">
               <label>Country</label>
-              <input type="text" value="India" readOnly />
+              <input type="text" />
             </div>
 
             <div className="form-group">
               <label>Pincode</label>
-              <input type="text" value="641035" readOnly />
+              <input type="text" />
             </div>
           </div>
 
           <div className="form-row">
             <div className="form-group">
               <label>Available Facilities</label>
-              <input type="text" value="2 Available Facilities Selected" readOnly />
+              <input type="text"  />
             </div>
 
             <div className="form-group">
               <label>Selected Holidays (Days)</label>
-              <input type="text" value="8 Days" readOnly />
+              <input type="text" />
             </div>
 
             <div className="form-group">
               <label>Working Start Time</label>
-              <input type="text" value="9:00 AM" readOnly />
+              <input type="text"  />
             </div>
           </div>
 
           <div className="form-row">
             <div className="form-group">
               <label>GSTIN</label>
-              <input type="text" value="33GMPPS4936K1ZR" readOnly />
+              <input type="text"  />
             </div>
 
             <div className="form-group">
               <label>Insurance Tiers</label>
-              <input type="text" value="2 Insurance Tiers Selected" readOnly />
+              <input type="text" />
             </div>
 
             <div className="form-group">
               <label>SAC</label>
-              <input type="text" value="-" readOnly />
+              <input type="text"  />
             </div>
           </div>
           <div className="workshop-profile-container">
@@ -160,4 +160,4 @@ const WorkshopProfile = () => {
   );
 };
 
-export default WorkshopProfile;
+export default Workshop;

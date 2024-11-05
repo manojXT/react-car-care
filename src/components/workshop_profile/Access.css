@@ -3,7 +3,7 @@
     font-family: Arial, sans-serif; 
      max-width:auto;
   
-}
+}   
 
 .tabs nav ul li {
   margin-right: 60px;
@@ -48,6 +48,7 @@ h2 {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 16px;
 }
 
 .mobile-group {
@@ -60,7 +61,7 @@ h2 {
 
 .submit-btn {
   grid-column: span 2;
-  margin-left: 300px;
+  margin-right: 450px;
   padding: 10px ;
   background-color: #007bff;
   color: white;

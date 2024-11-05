@@ -10,8 +10,7 @@ const Addissue = () => {
         return (
             <div className="container">
                 <div className="breadcrumbs">
-                    <span>Parts</span> &gt; <span>Issued</span>
-                </div>
+                        </div>
 
                 {/* Search bar and input for Quantity */}
                 <div className="search-section">
@@ -27,7 +26,7 @@ const Addissue = () => {
                         value={qty}
                         onChange={(e) => setQty(e.target.value)}
                     />
-                    <button className="add-btn">+</button>
+                    <button className="add-btn">Add</button>
                 </div>
 
                 {/* Table */}
