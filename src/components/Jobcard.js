@@ -48,6 +48,7 @@ const JobCard = () => {
 
     return (
         <div className="container">
+            <p className='title'>Job Card</p>
             <div className="live-date-container">
                 <div className="live-date">
                     {formatDate(currentDate)}

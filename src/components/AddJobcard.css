@@ -1,295 +1,212 @@
-/* Container and General Layout */
-.container {
-  display: flex;
-  flex-direction: column;
+/* AddJobcard.css */
+
+.mainContent {
   padding: 20px;
-  background-color: #f5f5f5;
-  box-shadow: 3px 3px #a5a3a3;
-  border-radius: 10px;
+  font-family: 'DM Sans';
 }
 
-/* Search Row */
-.search-row {
+.title{
   display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.search-icon {
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-.search-input {
-  flex-grow: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* Grid Layout for Form Sections */
-.vehicle-form-container, .Service-container, .Customer-container, .payment-section-container {
-  display: grid;
-  gap: 15px;
-}
-
-.vehicle-form-container {
-  grid-template-rows: repeat(3, auto); 
-}
-
-.Service-container, .Customer-container {
-  grid-template-rows: auto; 
-}
-
-/* Form Row Styling */
-.form-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-}
-
-.color-form-container {
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-  align-items: center;
-  overflow-x: auto;
-  padding: 15px;
-}
-
-.input, select {
-  margin-top: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.dropdown-box{
-  width: 60px;
-  height: 40px;
-  margin-top: 10px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  align-items: center;
-}
-
-.color-box {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;  
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
-  text-align: center;
-}
-
-.dropdown-item, .color-button {
-  cursor: pointer;
-}
-
-.dropdown-item:hover, .color-button:hover {
-  background-color: #f1f1f1;
-}
-
-.color-button {
-  width: 40px;
-  height: 40px;
-  border-radius: 4px;
-}
-
-.color-button.selected {
-  border: 2px solid #007bff;
-}
-
-/* Service Type and Advisor */
-.service-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 15px;
-}
-
-.service-container select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* Customer Section */
-.customer-section, .Customer-container {
-  display: grid;
-  gap: 10px;
-}
-
-.customer-section textarea {
-  resize: none;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.add-service-button, .add-driver-button {
-  padding: 10px 15px;
-  background-color: #457689;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.add-button{
-  margin-top: 10px;
-  width: 40px;
-  font-size: 14px;
+  justify-content: flex-start;
+  size: 30px;
   font-weight: bold;
-  color: #fff;
+}
+
+.searchRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.searchRow input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.row input,
+.pickerWrapper select,
+.detailsInput,
+.paymentInput,
+.technicianInput {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  flex: 1;
+  min-width: 150px;
+}
+
+.dropdownSelect {
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+}
+
+.pickerWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.concernsSection {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.concernsTextarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.addServiceButton {
+  padding: 10px;
   background-color: #457689;
+  color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.complaintsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.complaintButton {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.add-service-button:hover, .add-button:hover, .add-driver-button:hover {
-  background-color: #fff;
-  color: #457689;
-  border: 1px solid #457689;
+.complaintButton.active {
+  background-color: #457689; 
+  color: white;
+  border-color: #457689;
 }
 
-/* Payment Section */
-.payment-section-container {
-  display: grid;
-  gap: 15px;
+.customerDetailsSection {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
-.payment-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
+.detailsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.payment-input {
+.detailsInput {
+  flex: 1;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 14px;
 }
 
-/* Footer */
-.footer-container {
-  display: flex;
-  margin-top: 10px;
-  gap: 15px;
-}
-
-.footer-container button {
-  padding: 10px 20px;
+.addButton {
+  padding: 10px;
+  font-size: 14px;
+  color: white;
+  background-color: #457689;
   border: none;
   border-radius: 4px;
-  background-color: #457689;
-  color: white;
   cursor: pointer;
 }
 
-.footer-container button:hover {
-  background-color: #fff;
-  color: #457689;
+.addButton:hover {
+  background-color: #457689;
 }
 
-
-/* Media Queries */
-@media (max-width: 1200px) {
-  .service-container {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for larger tablets */
-  }
-
-  .payment-row {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for larger tablets */
-  }
+.addContactButton {
+  padding: 10px 20px;
+  background-color: #457689;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1;
 }
 
-@media (max-width: 992px) {
-  .search-row {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .service-container {
-    grid-template-columns: 1fr; /* Single column for smaller tablets */
-  }
-
-  .payment-row {
-    grid-template-columns: 1fr; /* Single column for smaller tablets */
-  }
-
-  .color-form-container {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  }
-
-  .footer-container {
-    flex-direction: column; /* Stack footer buttons on smaller screens */
-  }
+.addContactButton:hover {
+  background-color: #457689;
 }
 
-@media (max-width: 768px) {
-  .input, select, .payment-input {
-    width: 100%; /* Full width inputs for mobile */
-  }
-
-  .search-input {
-    padding: 8px; /* Adjust padding for mobile */
-  }
-
-  .add-button {
-    width: 100%; /* Full width buttons for mobile */
-  }
-
-  .customer-section textarea {
-    width: 100%; /* Full width textarea for mobile */
-  }
-
-  .color-square {
-    width: 30px; /* Smaller color squares for mobile */
-    height: 30px;
-  }
+.paymentSection {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
-@media (max-width: 576px) {
-  .container {
-    padding: 10px; /* Reduced padding for extra small screens */
-  }
-
-  .footer-container {
-    gap: 10px; /* Smaller gap for footer buttons */
-  }
-
-  .search-row {
-    width: 100%; /* Full width search row */
-  }
-
-  .dropdown-box {
-    width: 100%; /* Full width dropdown for mobile */
-  }
+.paymentSection h4 {
+  margin-bottom: 10px;
 }
 
+.paymentRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 
+.paymentInput {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
 
+.footer {
+  display: flex;
+  gap: 10px;
+  padding-top: 20px;
+}
 
+.footerButton {
+  padding: 10px 20px;
+  background-color: #457689;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.footerButton:hover {
+  background-color: #457689;
+}

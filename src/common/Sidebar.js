@@ -10,6 +10,7 @@ import jobcardIcon from './dashboardicons/Jobcard.png';
 import billingIcon from './dashboardicons/Transactioins.png';
 import inventoryIcon from './dashboardicons/Inventory.png';
 import customerIcon from './dashboardicons/Customer.png';
+import userIcon from './dashboardicons/Employees.png';
 import workshopIcon from './dashboardicons/Workshop profile.png';
 import reportsIcon from './dashboardicons/Reports.png';
 
@@ -23,6 +24,7 @@ const Sidebar = () => {
     inventory: false,
     billing: false,
     customer: false,
+    users: false,
     workshopProfile: false,
     reports: false,
   });
@@ -35,71 +37,91 @@ const Sidebar = () => {
     setExpandedSubmenu((prev) => ({ ...prev, [item]: !prev[item] }));
   };
 
+  const handleMenuClick = (item, path) => {
+    toggleExpand(item);
+    if (path) {
+      navigation(path);
+    }
+    // Collapse the sidebar after clicking a menu item
+    setIsExpanded(false);
+  };
+
   return (
     <div className={`sidebar ${isExpanded ? 'expanded' : 'collapsed'}`}>
       <button onClick={toggleSidebar} className="toggle-button">
         <FaBars />
       </button>
 
-      <div className="sidebar-item" onClick={() => { toggleExpand('dashboard'); navigation('/dashboard'); }}>
+      <div className="sidebar-item" onClick={() => handleMenuClick('dashboard', '/dashboard')}>
         <img src={dashboardIcon} alt="Dashboard" className="icon" />
         {isExpanded && <span className="label">Dashboard</span>}
       </div>
 
-      <div className="sidebar-item" onClick={() => { toggleExpand('appointment'); navigation(''); }}>
+      <div className="sidebar-item" onClick={() => handleMenuClick('appointment', '')}>
         <img src={appointmentIcon} alt="Book Appointment" className="icon" />
         {isExpanded && <span className="label">Book Appointment</span>}
       </div>
 
-      <div className="sidebar-item" onClick={() => { toggleExpand('jobCards'); navigation('/jobcard'); }}>
+      <div className="sidebar-item" onClick={() => handleMenuClick('jobCards', '/jobcard')}>
         <img src={jobcardIcon} alt="Job Cards" className="icon" />
         {isExpanded && <span className="label">Job Cards</span>}
       </div>
 
-      <div className="sidebar-item" onClick={() => { toggleExpand('inventory'); navigation(''); }}>
+      <div className="sidebar-item" onClick={() => handleMenuClick('inventory', '')}>
         <img src={inventoryIcon} alt="Inventory" className="icon" />
         {isExpanded && <span className="label">Inventory</span>}
       </div>
       {isExpanded && expandedSubmenu.inventory && (
         <div className="sub-menu">
-          <div className="sub-item" onClick={() => navigation('')}>Order</div>
-          <div className="sub-item" onClick={() => navigation('')}>Inward</div>
-          <div className="sub-item" onClick={() => navigation('')}>Issue</div>
-          <div className="sub-item" onClick={() => navigation('')}>Purchase Return</div>
-          <div className="sub-item" onClick={() => navigation('')}>Stock Transfer</div>
-          <div className="sub-item" onClick={() => navigation('')}>Stock Alert</div>
-          <div className="sub-item" onClick={() => navigation('')}>Upload Stock</div>
+          <div className="sub-item" onClick={() => handleMenuClick('inventory', '')}>Order</div>
+          <div className="sub-item" onClick={() => handleMenuClick('inventory', '')}>Inward</div>
+          <div className="sub-item" onClick={() => handleMenuClick('inventory', '')}>Issue</div>
+          <div className="sub-item" onClick={() => handleMenuClick('inventory', '')}>Purchase Return</div>
+          <div className="sub-item" onClick={() => handleMenuClick('inventory', '')}>Stock Transfer</div>
+          <div className="sub-item" onClick={() => handleMenuClick('inventory', '')}>Stock Alert</div>
+          <div className="sub-item" onClick={() => handleMenuClick('inventory', '')}>Upload Stock</div>
         </div>
       )}
 
-      <div className="sidebar-item" onClick={() => { toggleExpand('billing'); navigation(''); }}>
+      <div className="sidebar-item" onClick={() => handleMenuClick('billing', '')}>
         <img src={billingIcon} alt="Billing" className="icon" />
         {isExpanded && <span className="label">Billing</span>}
       </div>
       {isExpanded && expandedSubmenu.billing && (
         <div className="sub-menu">
-          <div className="sub-item" onClick={() => navigation('')}>Invoice</div>
-          <div className="sub-item" onClick={() => navigation('')}>New Bill</div>
+          <div className="sub-item" onClick={() => handleMenuClick('billing', '')}>Invoice</div>
+          <div className="sub-item" onClick={() => handleMenuClick('billing', '')}>New Bill</div>
         </div>
       )}
 
-      <div className="sidebar-item" onClick={() => { toggleExpand('customer'); navigation(''); }}>
+      <div className="sidebar-item" onClick={() => handleMenuClick('customer', '')}>
         <img src={customerIcon} alt="Customer" className="icon" />
         {isExpanded && <span className="label">Customer</span>}
       </div>
       {isExpanded && expandedSubmenu.customer && (
         <div className="sub-menu">
-          <div className="sub-item" onClick={() => navigation('')}>Manage</div>
-          <div className="sub-item" onClick={() => navigation('')}>PSF</div>
+          <div className="sub-item" onClick={() => handleMenuClick('customer', '')}>Manage</div>
+          <div className="sub-item" onClick={() => handleMenuClick('customer', '')}>PSF</div>
         </div>
       )}
 
-      <div className="sidebar-item" onClick={() => { toggleExpand('workshopProfile'); navigation(''); }}>
+      <div className="sidebar-item" onClick={() => handleMenuClick('users', '')}>
+        <img src={userIcon} alt="users" className="icon" />
+        {isExpanded && <span className="label">Users</span>}
+      </div>
+      {isExpanded && expandedSubmenu.users && (
+        <div className="sub-menu">
+          <div className="sub-item" onClick={() => handleMenuClick('users', '')}>Employee</div>
+          <div className="sub-item" onClick={() => handleMenuClick('users', '')}>Job Queue</div>
+        </div>
+      )}
+
+      <div className="sidebar-item" onClick={() => handleMenuClick('workshopProfile', '')}>
         <img src={workshopIcon} alt="Workshop Profile" className="icon" />
         {isExpanded && <span className="label">Workshop Profile</span>}
       </div>
 
-      <div className="sidebar-item" onClick={() => { toggleExpand('reports'); navigation(''); }}>
+      <div className="sidebar-item" onClick={() => handleMenuClick('reports', '')}>
         <img src={reportsIcon} alt="Reports" className="icon" />
         {isExpanded && <span className="label">Reports</span>}
       </div>

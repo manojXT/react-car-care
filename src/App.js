@@ -12,6 +12,7 @@ import Sidebar from './common/Sidebar';
 import JobCard from './components/Jobcard';
 import AddJobcard from './components/AddJobcard';
 import Estimation from './components/Estimation';
+import NewInvoice from './components/NewInvoice';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
                 <Route path="/jobcard" element={<JobCard />} />
                 <Route path="/addjobcard" element={<AddJobcard />} />
                 <Route path="/estimation" element={<Estimation />} />
+                <Route path="/newinvoice" element={<NewInvoice />} />
                
               </Routes>
             </div>

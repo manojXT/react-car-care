@@ -1,61 +1,187 @@
-.icon-nav {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    background-color: #f5f5f5;
-  }
-  
-  .icon-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #333;
-  }
-  
-  .icon {
-    font-size: 24px;
-  }
+/* General Layout */
+.title{
+  display: flex;
+  justify-content: flex-start;
+  size: 30px;
+  font-weight: bold;
+}
 
-  .search-bar {
-    display: flex;
-    gap: 10px;
-    padding: 10px;
-    background-color: #f9f9f9;
-  }
-  
-  .search-input, .filter-select, .filter-input {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .add-button{
-    margin-top: 10px;
-    width: 40px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #457689;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
 
-  .parts-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 10px 0;
-  }
-  
-  .parts-table th, .parts-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .parts-table th {
-    background-color: #f2f2f2;
-    color: #333;
-  }
-  
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px 8px;
+  background-color: #fff;
+}
+
+.icon {
+  color: #888;
+  margin-right: 4px;
+}
+
+/* Search Bar Inputs */
+.search-input {
+  border: none;
+  outline: none;
+  padding: 4px;
+  flex: 1; 
+}
+
+.filter-select,
+.filter-input,
+.qty-input,
+.price-input,
+.service-input,
+.discount-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background-color: #457689;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+
+.add-button:hover {
+  background-color: #ffff;
+  color: #457689;
+  border: 1px solid #335c6f;
+}
+
+/* Estimation Table */
+.estimation-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.estimation-table th,
+.estimation-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left; /* Align text to the start (left) */
+}
+
+.estimation-table th {
+  background-color: #f2f2f2; 
+  font-weight: bold;
+}
+
+.input-group .search-input,
+.qty-input,
+.price-input,
+.discount-input,
+.price-select {
+  padding: 6px;
+  width: 80%;
+  box-sizing: border-box;
+}
+
+.discount-select {
+  padding: 4px;
+  margin-left: 4px;
+}
+
+.apply-discount td {
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+
+.right-align {
+  text-align: right;
+  padding-right: 12px;
+}
+
+.approval-dropdown {
+  width: 80%; 
+  padding: 4px;
+}
+
+/* Discount Row */
+.apply-discount {
+  text-align: left; /* Ensure it's left aligned for flex-start */
+  font-size: 12px;
+  background-color: #f9f9f9;
+  padding-left: 15px;
+  color: #666;
+}
+
+/* Discount Input and Select */
+.discount-input,
+.discount-select {
+  width: 60px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Right Align Text */
+.right-align {
+  text-align: right;
+  padding-right: 15px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Footer Buttons */
+.footer-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.footer-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 20px;
+  background-color: #457689;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.footer-button:hover {
+  background-color: #335c6f;
+}
+
+/* Cancel Button */
+.cancel-button {
+  background-color: #d9534f;
+}
+
+.cancel-button:hover {
+  background-color: #c9302c;
+}
+
+/* SVG Icon Size in Footer Buttons */
+.footer-button svg {
+  font-size: 16px;
+}
