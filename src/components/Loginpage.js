@@ -19,6 +19,7 @@ export default function Loginpage() {
 
   // Handle input changes
   const handleInputChange = (event) => {
+    
     setInputs({ ...inputs, [event.target.name]: event.target.value });
     setErrors((prevErrors) => ({ ...prevErrors, [event.target.name]: { required: false }, custom_error: null }));
   };
@@ -41,9 +42,10 @@ export default function Loginpage() {
     }
 
     if (!hasErrors) {
+      console.log('inputs chnaged:', inputs.username, inputs.password)
       setLoading(true);
       // Sending JSON request to backend
-      fetch('http://172.19.0.3:5000/login', {
+      fetch('http://192.168.0.103:5000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -55,10 +57,11 @@ export default function Loginpage() {
       })
         .then((response) => response.json())
         .then((data) => {
+          console.log(data)
           setLoading(false);  // Stop loading
-          if (data.message === 'Login successful!') {
-            setMessage('Login successful!');  // Set success message
-            navigate('/Jobcard');  // Redirect to "Inward" page upon successful login
+          if (data.response.status === 200) {
+            setMessage('Login successful!');  
+            navigate('/Jobcard');  
           } else {
             setErrors({ ...newErrors, custom_error: data.error });
           }
@@ -134,7 +137,7 @@ export default function Loginpage() {
             </div>
 
             <p className="forgot-password">
-              <a href="/">Forgot Password?</a>
+              <a href="/Forgotpassword">Forgot Password?</a>
             </p>
 
             {/* Submit Button */}

@@ -1,71 +1,58 @@
-import React from 'react';
-import './App.css'; 
+import React, { useState } from 'react';  // Import useState
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Access from './components/Access';
-import Profile from './components/Profile';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import WorkshopProfile from './components/Workshop';
-import SettingsPage from './components/Settings';
-import SubscriptionTable from './components/Subscription';
-import Termsandcondition from './components/Terms and condition';
-import Reminders from './components/Reminder';
-import Associate from './components/Associate';
-import Integrations from './components/Integrations';
-import Users from './components/Users';
-import Stock  from './components/Stock';
-import Order from './components/Order';
-import TabInventory from './components/TabInventory';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Inward from './components/Inward';
-import Issued from './components/Issue';
-import Purchasereturn from './components/Purchasereturn';
-import Stockalert from './components/Stockalert';
-import Appointment from './components/Appointment';
-import Addorder from './components/Addorder';
-import Addinward from './components/Addinward';
-import Addissue from './components/Addissue';
-import Addreturn from './components/Addreturn';
+
+// Sidebar & Header Section
+import Header from './common/Header';
+import Sidebar from './common/Sidebar';
+
+// import Loginpage from './components/Loginpage';
+import Dashboard from './components/Dashboard';
+import Bookappointment from './components/Bookappointment';
+import Newappointment from './components/Newappointment';
+import Employee from './components/Employee';
+import Addemployee from './components/Addemployee';
+import Jobqueue from './components/Jobqueue';
+// import ForgotPassword from './components/Forgotpassword';
 
 
+  function App() {
+    const [showSidebar, setShowSidebar] = useState(false);
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
+   
+    const toggleSidebar = () => {
+      setShowSidebar(prevState => !prevState);
+    };
+   
+    // const handleLogin = () => {
+    //   setIsLoggedIn(true);
+    // };
 
-
-function App() {
   return (
     <Router>
+       {/* <Routes>
+        <Route path="/" element={<Loginpage onLogin={handleLogin} />} />
+        <Route path="/Forgotpassword" element={<ForgotPassword/>} />
+      </Routes> */}
+     
+      {/* {isLoggedIn && ( */}
       <div className="app">
         <Header />
         <div className="main-layout">
-          <Sidebar />
+          <Sidebar showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
           <div className="content">
             <Routes>
-              <Route path="/Access" element={<Access />} />
-              <Route path="/TabInventory" element={<TabInventory />} />
-              <Route path="/Users" element={<Users />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/Workshop" element={<WorkshopProfile />} />
-              <Route path="/Settings" element={<SettingsPage />} />
-              <Route path="/Subscription" element={<SubscriptionTable />} />
-              <Route path="/Terms and condition" element={<Termsandcondition />} />
-              <Route path="/Reminders" element={<Reminders />} />
-              <Route path="/Associate" element={<Associate />} />
-              <Route path="/Integrations" element={<Integrations />} />
-              <Route path="/Stock" element={<Stock/>} />
-              <Route path="/Order" element={<Order />} />
-              <Route path="/Inward" element={<Inward />} />
-              <Route path="/Issued" element={<Issued />} />
-              <Route path="/Purchasereturn" element={<Purchasereturn />} />
-              <Route path="/Stockalert" element={<Stockalert />} />
-              <Route path="/Appointment" element={<Appointment />} />
-              <Route path="/Addorder" element={<Addorder />} />
-              <Route path="/Addinward" element={<Addinward />} />
-              <Route path="/Addissue" element={<Addissue />} />
-              <Route path="/Addreturn" element={<Addreturn />} />
-              
+              <Route path="/Dashboard" element={<Dashboard />} />
+              <Route path="/Bookappointment" element={<Bookappointment/>} />
+              <Route path="/Newappointment" element={<Newappointment/>} />
+              <Route path="/Employee" element={<Employee/>} />
+              <Route path="/Addemployee" element={<Addemployee/>} />
+              <Route path="/Jobqueue" element={<Jobqueue/>} />
             </Routes>
           </div>
         </div>
       </div>
+      {/* )} */}
     </Router>
   );
 }
