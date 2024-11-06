@@ -2,13 +2,17 @@
   display: flex;
   flex-direction: column;
   background-color: #f2f2f2;
+<<<<<<< HEAD
   height: 100vh;
+=======
+>>>>>>> 9df4cb9051c744976b42ebae953da11c5b4c845d
 }
  
 .main-layout {
   display: flex;
   flex: 1;
 }
+<<<<<<< HEAD
  
 .content {
   flex: 1;
@@ -35,3 +39,27 @@
   margin-top: 50px;
   padding: 20px;
 }
+=======
+
+.content {
+  flex: 1;
+  margin-left: 100px;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+/* .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: blue;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+} */
+
+>>>>>>> 9df4cb9051c744976b42ebae953da11c5b4c845d
