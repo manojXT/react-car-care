@@ -1,0 +1,65 @@
+/* Stock.css
+
+.container {
+  margin: 0 auto;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.flexGrow {
+  flex-grow: 1;
+}
+
+.exportButton {
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.summarySection {
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+}
+
+.summaryItem {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.searchBar {
+  margin: 20px 0;
+}
+
+.tableContainer {
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+}
+
+.tableHead {
+  background-color: #f0f0f0;
+}
+
+.tableRow {
+  height: 50px;
+}
+
+.tableCell {
+  font-weight: bold;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.noData {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  font-size: 1rem;
+  padding: 20px;
+} */

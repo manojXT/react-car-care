@@ -1,0 +1,96 @@
+/* General layout
+.integrations {
+    font-family: Arial, sans-serif;
+    max-width: auto;
+  }
+  
+  .tabs nav ul li {
+    padding-top: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #707070;
+  }
+  
+
+  h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+ 
+  .integration-card {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .integration-logo img {
+    width: 80px;
+    height: auto;
+    margin-right: 20px;
+  }
+  
+  .integration-info {
+    flex: 1;
+  }
+  
+  .integration-info h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .integration-info p {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .integration-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .learn-more {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .learn-more:hover {
+    text-decoration: underline;
+  }
+  
+  .connect-btn {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .connect-btn:hover {
+    background-color: #45a049;
+  }
+  
+  
+  .submit-btn {
+    margin-top: 20px;
+    margin-left: auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0069d9;
+  } */

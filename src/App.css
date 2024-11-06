@@ -1,33 +1,137 @@
-/* App.css */
-.app {
+/* .app {
   display: flex;
   flex-direction: column;
   background-color: #f2f2f2;
+  height: 100vh;
 }
-
+ 
 .main-layout {
   display: flex;
   flex: 1;
 }
-
+ 
 .content {
   flex: 1;
-  margin-left: 100px;
-  margin-top: 50px;
   padding: 20px;
+  margin-left: 250px;
+  overflow: auto;
+  width: 100%;
+} */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+.app {
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  height: 100vh;
+}
+ 
+.main-layout {
+  display: flex;
+  flex: 1;
+}
+ 
+.content {
+  flex: 1;
+  margin-left: 70px;
+  margin-right: 10px;
+  margin-top: 70px;
+  padding: 20px;
+  background-color: #f5f6ff;
+  z-index: 10;
+  border-radius: 20px;
+  font-family: 'DM Sans';
 }
 
-/* .header {
+.header {
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center; 
+  background-color: #457689;
+  color: white;
+  height: 20%;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-bottom-right-radius: 20px;
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  height: 60px;
-  background-color: blue;
-  color: whitesmoke;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-} */
+  right: 0; 
+  font-family: 'DM Sans';
+}
 
+
+/* Media query for devices with a max-width of 768px (tablets, small laptops) */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column; 
+  }
+
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .content {
+    margin-left: 0;  
+    margin-top: 120px; 
+    margin-right: 10px;  
+    padding: 15px; 
+    background-color: #f5f6ff;
+    z-index: 10;
+    border-radius: 10px; 
+  }
+
+  .header {
+    flex-direction: column; 
+    height: auto;
+    padding: 15px 20px; 
+    font-size: 16px; 
+    border-radius: 10px; 
+  }
+
+  /* Adjust profile dropdown and logout button for small screens */
+  .profile-section {
+    margin-top: 10px;
+    justify-content: right; 
+  }
+
+  .profile-name,
+  .profile-icon,
+  .username {
+    font-size: 14px; 
+  }
+
+  .dropdown-content {
+    min-width: 100px; 
+  }
+
+  .profile-icon {
+    font-size: 24px;  
+  }
+}
+
+/* Media query for devices with a max-width of 480px (mobile phones) */
+@media (max-width: 480px) {
+  .content {
+    margin-top: 140px; 
+    padding: 10px; 
+  }
+
+  .header {
+    padding: 10px 15px; 
+    font-size: 14px; 
+  }
+
+  .profile-name,
+  .username {
+    font-size: 12px; 
+  }
+
+  .profile-dropdown {
+    margin-top: 5px; 
+  }
+
+  .logout-button {
+    padding: 8px 10px; 
+  }
+}

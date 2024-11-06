@@ -24,6 +24,7 @@
   box-shadow: 0 0 15px black;
   border-bottom-right-radius: 30px;
   font-family: 'DM Sans';
+  z-index: 1000;
 }
 
 .sidebar::-webkit-scrollbar {
