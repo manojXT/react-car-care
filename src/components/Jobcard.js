@@ -12,18 +12,19 @@ import RFD from './Icons/Ready for delivery.png';
 import { useNavigate } from 'react-router-dom';
 
 const JobCard = () => {
-
-    const navigation = useNavigate();
-
+    const navigate = useNavigate();
     const [currentDate, setCurrentDate] = useState(new Date());
     const [data, setData] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
 
-    // Fetch job card data from Flask API
+    // Fetch all job cards
     useEffect(() => {
         const fetchData = async () => {
+            console.log("Fetching all job cards...");
             try {
-                const response = await fetch("http://localhost:5000/api/jobcards");
+                const response = await fetch("http://192.168.0.103/api/jobcards");
+                console.log("Response status:", response.status); 
+                if (!response.ok) throw new Error('Failed to fetch job cards');
                 const result = await response.json();
                 setData(result);
             } catch (error) {
@@ -34,29 +35,19 @@ const JobCard = () => {
     }, []);
 
     useEffect(() => {
-        const timerId = setInterval(() => {
-            setCurrentDate(new Date());
-        }, 1000 * 60 * 60 * 24); // Update every 24 hours
-
+        const timerId = setInterval(() => setCurrentDate(new Date()), 1000 * 60 * 60 * 24); 
         return () => clearInterval(timerId);
     }, []);
 
-    const formatDate = (date) => {
-        const options = { year: "numeric", month: "long", day: "numeric" };
-        return date.toLocaleDateString(undefined, options);
-    };
+    const formatDate = (date) => date.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
 
     return (
         <div className="container">
-            <p className='title'>Job Card</p>
+            <p className="title">Job Card</p>
             <div className="live-date-container">
-                <div className="live-date">
-                    {formatDate(currentDate)}
-                </div>
-                <button className="add-button" onClick={() => navigation('/addjobcard')}>+</button>
+                <div className="live-date">{formatDate(currentDate)}</div>
+                <button className="add-button" onClick={() => navigate('/addjobcard')}>+</button>
             </div>
-
-
 
             <div className="cardsContainer">
                 {/* Job Cards */}
@@ -153,14 +144,14 @@ const JobCard = () => {
                 </div>
 
                 {data
-                    .filter(item =>
+                    .filter((item) =>
                         item.customerName.toLowerCase().includes(searchQuery.toLowerCase()) ||
                         item.mobileNo.includes(searchQuery) ||
                         item.vehicle.toLowerCase().includes(searchQuery.toLowerCase()) ||
                         item.claimNo.toLowerCase().includes(searchQuery.toLowerCase())
                     )
-                    .map((item, index) => (
-                        <div key={index} className="row">
+                    .map((item) => (
+                        <div key={item.id} className="row">
                             <span className="cell">{item.rfeNo}</span>
                             <span className="cell">{item.jobCardNo}</span>
                             <span className="cell">{item.regNo}</span>

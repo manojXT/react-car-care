@@ -90,7 +90,7 @@ const Sidebar = () => {
       {isExpanded && expandedSubmenu.billing && (
         <div className="sub-menu">
           <div className="sub-item" onClick={() => handleMenuClick('billing', '')}>Invoice</div>
-          <div className="sub-item" onClick={() => handleMenuClick('billing', '')}>New Bill</div>
+          <div className="sub-item" onClick={() => handleMenuClick('billing', '/newbill')}>New Bill</div>
         </div>
       )}
 

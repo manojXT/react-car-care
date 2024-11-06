@@ -1,22 +1,20 @@
 version: '3.8'
 
 services:
-  backend:
-    build:
-      context: ./backend  # Change to your backend directory
-      dockerfile: Dockerfile
-    ports:
-      - "5000:5000"
-    environment:
-      - FLASK_ENV=development 
-
   frontend:
+   
     build:
-      context: ./frontend  # Change to your frontend directory
+      context: ./react-car-care  
       dockerfile: Dockerfile
+    
     ports:
-      - "3000:3000"
+      - "3000:3000"  
+   
     environment:
-      - REACT_APP_API_URL=http://backend:5000  
-    depends_on:
-      - backend  # Ensure backend starts before frontend
+      - REACT_APP_API_URL=http://localhost:5000  
+  
+    command: ["npm", "start"]
+    
+    volumes:
+      - ./react-car-care:/app
+      - /app/node_modules
