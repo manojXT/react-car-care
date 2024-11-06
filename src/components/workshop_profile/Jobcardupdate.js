@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import './Employee.css';
-import { FaUser, FaEye, FaEdit, FaTrash } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import './Jobcardupdate.css';
+import {  FaEye, FaEdit, } from 'react-icons/fa';
 
 const Employees = [
-
     {
         id: 1,
         firstName: 'Dharaa',
@@ -15,8 +13,7 @@ const Employees = [
     // Add more Employee data here as needed
 ];
 
-const EmployeeTable = () => {
-    const navigate = useNavigate();
+const Jobcardupdate = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [entries, setEntries] = useState(10);
 
@@ -48,23 +45,27 @@ const EmployeeTable = () => {
                     </select>
                     <span>entries</span>
                 </div>
-                
                 <div className="search-control">
                     <label>Search:</label>
                     <input type="text" value={searchTerm} onChange={handleSearch} placeholder="Search" />
-                    <button className="add-button" onClick={() => navigate('/Addemployee')}>+</button>
                 </div>
             </div>
 
             <table className="Employee-table">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Image</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Mobile Number</th>
+                        
+                        <th>Ref.no</th>
+                        <th>Job card no</th>
+                        <th>Reg.no</th>
+                        <th>Invoice.no</th>
+                        <th>Service type</th>
+                        <th>Vehicle</th>
+                        <th>Status</th>
+                        <th>Customer name</th>
+                        <th>Mobile no</th>
+                        <th>Arrival date</th>
+                        <th>Arrival time</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -72,23 +73,25 @@ const EmployeeTable = () => {
                     {filteredEmployees.slice(0, entries).map((Employee, index) => (
                         <tr key={Employee.id}>
                             <td>{index + 1}</td>
-                            <td>
-                                <FaUser className="Employee-icon" />
-                            </td>
-                            <td>{Employee.firstName}</td>
-                            <td>{Employee.lastName}</td>
-                            <td>{Employee.email}</td>
-                            <td>{Employee.mobile}</td>
+                          
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                             <td className="action-buttons">
                                 <button className="view-btn">
                                     <FaEye /> View
                                 </button>
-                                <button className="edit-btn">
-                                    <FaEdit /> Edit
+                                <button className="download-btn">
+                                    <FaEdit /> download
                                 </button>
-                                <button className="delete-btn">
-                                    <FaTrash /> Delete
-                                </button>
+
                             </td>
                         </tr>
                     ))}
@@ -106,4 +109,4 @@ const EmployeeTable = () => {
     );
 };
 
-export default EmployeeTable;
+export default Jobcardupdate;

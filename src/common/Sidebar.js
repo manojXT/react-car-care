@@ -9,7 +9,7 @@ import appointmentIcon from './dashboardicons/Appointment.png';
 import jobcardIcon from './dashboardicons/Jobcard.png';
 import billingIcon from './dashboardicons/Transactioins.png';
 import inventoryIcon from './dashboardicons/Inventory.png';
-import customerIcon from './dashboardicons/Customer.png';
+// import customerIcon from './dashboardicons/Customer.png';
 import userIcon from './dashboardicons/Employees.png';
 import workshopIcon from './dashboardicons/Workshop profile.png';
 import reportsIcon from './dashboardicons/Reports.png';
@@ -57,15 +57,7 @@ const Sidebar = () => {
         {isExpanded && <span className="label">Dashboard</span>}
       </div>
 
-<<<<<<< HEAD
-      <div className="sidebar-item" onClick={() => handleMenuClick('appointment', '')}>
-=======
-<<<<<<< HEAD
-      <div className="sidebar-item" onClick={() => { toggleExpand('appointment'); navigation('/bookappointment'); }}>
-=======
-      <div className="sidebar-item" onClick={() => { toggleExpand('appointment'); navigation(''); }}>
->>>>>>> 9df4cb9051c744976b42ebae953da11c5b4c845d
->>>>>>> 82c83fdff6fb2ff8f930ad3785608d12dc4631ab
+      <div className="sidebar-item" onClick={() => handleMenuClick('appointment', '/Bookappointment')}>
         <img src={appointmentIcon} alt="Book Appointment" className="icon" />
         {isExpanded && <span className="label">Book Appointment</span>}
       </div>
@@ -75,7 +67,7 @@ const Sidebar = () => {
         {isExpanded && <span className="label">Job Cards</span>}
       </div>
 
-      <div className="sidebar-item" onClick={() => handleMenuClick('inventory', '')}>
+      <div className="sidebar-item" onClick={() => handleMenuClick('inventory', '/Stock')}>
         <img src={inventoryIcon} alt="Inventory" className="icon" />
         {isExpanded && <span className="label">Inventory</span>}
       </div>
@@ -102,7 +94,7 @@ const Sidebar = () => {
         </div>
       )}
 
-      <div className="sidebar-item" onClick={() => handleMenuClick('customer', '')}>
+      {/* <div className="sidebar-item" onClick={() => handleMenuClick('customer', '')}>
         <img src={customerIcon} alt="Customer" className="icon" />
         {isExpanded && <span className="label">Customer</span>}
       </div>
@@ -111,7 +103,7 @@ const Sidebar = () => {
           <div className="sub-item" onClick={() => handleMenuClick('customer', '')}>Manage</div>
           <div className="sub-item" onClick={() => handleMenuClick('customer', '')}>PSF</div>
         </div>
-      )}
+      )} */}
 
       <div className="sidebar-item" onClick={() => handleMenuClick('users', '')}>
         <img src={userIcon} alt="users" className="icon" />
@@ -119,12 +111,12 @@ const Sidebar = () => {
       </div>
       {isExpanded && expandedSubmenu.users && (
         <div className="sub-menu">
-          <div className="sub-item" onClick={() => handleMenuClick('users', '')}>Employee</div>
-          <div className="sub-item" onClick={() => handleMenuClick('users', '')}>Job Queue</div>
+          <div className="sub-item" onClick={() => handleMenuClick('users', '/Employee')}>Employee</div>
+          <div className="sub-item" onClick={() => handleMenuClick('users', '/Jobqueue')}>Job Queue</div>
         </div>
       )}
 
-      <div className="sidebar-item" onClick={() => handleMenuClick('workshopProfile', '')}>
+      <div className="sidebar-item" onClick={() => handleMenuClick('workshopProfile', '/profile')}>
         <img src={workshopIcon} alt="Workshop Profile" className="icon" />
         {isExpanded && <span className="label">Workshop Profile</span>}
       </div>

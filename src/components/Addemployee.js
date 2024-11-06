@@ -105,29 +105,216 @@ const Addemployee = () => {
       <form className="employee-form" onSubmit={handleSubmit}>
         <div className="form-row">
           <div className="form-group">
-            <label>First Name </label>
-            <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required />
+            <label>First Name</label>
+            <input
+              type="text"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              required
+            />
           </div>
           <div className="form-group">
-            <label>Last Name </label>
-            <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required />
+            <label>Last Name</label>
+            <input
+              type="text"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              required
+            />
           </div>
         </div>
+
         <div className="form-row">
           <div className="form-group">
             <label>Employee ID</label>
-            <input type="text" name="employeeId" value={formData.employeeId} onChange={handleChange} required />
+            <input
+              type="text"
+              name="employeeId"
+              value={formData.employeeId}
+              onChange={handleChange}
+              required
+            />
           </div>
           <div className="form-group">
             <label>Designation</label>
-            <input type="text" name="designation" value={formData.designation} onChange={handleChange} required />
+            <input
+              type="text"
+              name="designation"
+              value={formData.designation}
+              onChange={handleChange}
+              required
+            />
           </div>
         </div>
-        {/* The rest of your form fields go here */}
+
+        <div className="form-row">
+          <div className="form-group">
+            <label>Date of Birth</label>
+            <input
+              type="date"
+              name="dateOfBirth"
+              value={formData.dateOfBirth}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Branch</label>
+            <select
+              name="branch"
+              value={formData.branch}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select Branch</option>
+              <option value="Main">Main</option>
+              <option value="Branch 1">Branch 1</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label>Mobile No</label>
+            <input
+              type="tel"
+              name="mobileNo"
+              value={formData.mobileNo}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label>User Name</label>
+            <input
+              type="text"
+              name="userid"
+              value={formData.userid}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label>Profile Image</label>
+            <input type="file" name="image" onChange={handleChange} />
+            {formData.image && (
+              <img
+                src={URL.createObjectURL(formData.image)}
+                alt="Employee"
+                className="image-preview"
+              />
+            )}
+          </div>
+          <div className="form-group">
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label>Country</label>
+            <select
+              name="country"
+              value={formData.country}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select Country</option>
+              {Object.keys(countryStateCityData).map((country) => (
+                <option key={country} value={country}>
+                  {country}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="form-group">
+            <label>State</label>
+            <select
+              name="state"
+              value={formData.state}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select State</option>
+              {stateOptions.map((state) => (
+                <option key={state} value={state}>
+                  {state}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label>City</label>
+            <select
+              name="city"
+              value={formData.city}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select City</option>
+              {cityOptions.map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Address</label>
+            <textarea
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
 
         <div className="form-buttons">
-          <button type="button" onClick={handleCancel} className="cancel-button">Cancel</button>
-          <button type="submit" className="submit-button">Submit</button>
+          <button type="button" onClick={handleCancel} className="cancel-button">
+            Cancel
+          </button>
+          <button type="submit" className="submit-button">
+            Submit
+          </button>
         </div>
       </form>
     </div>

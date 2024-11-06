@@ -1,0 +1,72 @@
+/* General Layout
+.workshop-profile {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .workshop-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .contact-info {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .tab-content {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 0 5px 5px 5px;
+    background-color: #fff;
+    margin-top: -1px;
+  }
+  
+  .associated-workshop {
+    margin-top: 20px;
+  }
+  
+  .associated-workshop h2 {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th, table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+  }
+  
+  table tbody td {
+    color: #666;
+  }
+  
+  table tbody td[colspan="5"] {
+    text-align: center;
+    font-style: italic;
+    color: #999;
+  }
+  next-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .next-button:hover {
+    background-color: #0056b3;
+  } */

@@ -6,7 +6,7 @@
       return (
         <header className="header">
           {/* Center label moved to the right end */}
-          <label className="header-title">KG CAR CARE, COIMBATORE</label>
+          {/* <label className="header-title">KG CAR CARE, COIMBATORE</label> */}
 
           {/* Right-side profile section */}
           <div className="profile-section">

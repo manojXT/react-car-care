@@ -1,0 +1,103 @@
+/* Access.css */
+.users-page {
+    font-family: Arial, sans-serif; 
+     max-width:auto;
+  
+}   
+
+.tabs nav ul li {
+  margin-right: 60px;
+  padding-top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #707070;
+}
+
+h2 {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;  
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+.user-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.mobile-group {
+  display: flex;
+}
+
+.mobile-group select {
+  margin-right: 10px;
+}
+
+.submit-btn {
+  grid-column: span 2;
+  margin-right: 450px;
+  padding: 10px ;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+/* User Table */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th,
+.user-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.user-table th {
+  background-color: #f4f4f4;
+}
+
+.user-table input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .user-form {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,58 @@
+/* Reminder.css
+
+.container {
+  max-width: auto;
+  margin: 0 auto;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.text-muted {
+  font-size: 0.9rem;
+}
+
+.reminder-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reminder-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.add-notification-button {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.add-notification-button i {
+  margin-left: 5px;
+}
+
+.card {
+  margin-bottom: 15px;
+}
+
+.card-body {
+  padding: 15px 20px;
+}
+
+button {
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3; 
+}
+
+.text-end button {
+  margin-top: 20px;
+}
+ */

@@ -62,7 +62,7 @@ const JobCard = () => {
         </div>
 
         <div className="form">
-          <div className="row">
+          <div className="form-row">
             <input type="text" name='registration_no' placeholder="Registration No." />
             <input type="text" name='odometer_no' placeholder="Odometer In" />
             <input type="text" name='average_kms' placeholder="Avg KMS / Day" />
