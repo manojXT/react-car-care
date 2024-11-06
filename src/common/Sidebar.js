@@ -57,7 +57,15 @@ const Sidebar = () => {
         {isExpanded && <span className="label">Dashboard</span>}
       </div>
 
+<<<<<<< HEAD
       <div className="sidebar-item" onClick={() => handleMenuClick('appointment', '')}>
+=======
+<<<<<<< HEAD
+      <div className="sidebar-item" onClick={() => { toggleExpand('appointment'); navigation('/bookappointment'); }}>
+=======
+      <div className="sidebar-item" onClick={() => { toggleExpand('appointment'); navigation(''); }}>
+>>>>>>> 9df4cb9051c744976b42ebae953da11c5b4c845d
+>>>>>>> 82c83fdff6fb2ff8f930ad3785608d12dc4631ab
         <img src={appointmentIcon} alt="Book Appointment" className="icon" />
         {isExpanded && <span className="label">Book Appointment</span>}
       </div>

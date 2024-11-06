@@ -9,7 +9,11 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@mui/icons-material": "^6.1.3",
+<<<<<<< HEAD
+    "@mui/material": "^6.1.3",
+=======
     "@mui/material": "^6.1.4",
+>>>>>>> 9df4cb9051c744976b42ebae953da11c5b4c845d
     "@mui/x-date-pickers": "^7.20.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -17,13 +21,21 @@
     "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
     "react": "^18.3.1",
-    "react-bootstrap": "^2.10.5",
+<<<<<<< HEAD
     "react-datepicker": "^7.5.0",
+=======
+    "react-bootstrap": "^2.10.5",
+<<<<<<< HEAD
+    "react-datepicker": "^7.5.0",
+=======
+>>>>>>> 9df4cb9051c744976b42ebae953da11c5b4c845d
+>>>>>>> 82c83fdff6fb2ff8f930ad3785608d12dc4631ab
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.27.0",
     "react-scripts": "^5.0.1",
+    "react-select": "^5.8.2",
     "swiper": "^11.1.14",
     "web-vitals": "^2.1.4"
   },
@@ -50,10 +62,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+<<<<<<< HEAD
+=======
   },
   "devDependencies": {
     "babel-loader": "^9.2.1",
     "webpack": "^5.95.0",
     "webpack-dev-server": "^5.1.0"
+>>>>>>> 9df4cb9051c744976b42ebae953da11c5b4c845d
   }
 }

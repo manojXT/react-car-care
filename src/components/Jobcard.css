@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 .container {
@@ -200,4 +201,201 @@
   .cell {
       flex: 1 1 100%;
   }
+=======
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #f5f5f5;
+  box-shadow: 3px 3px #a5a3a3;
+  border-radius: 10px;
+}
+
+/* Positioning the live-date container and add button */
+.live-date-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.live-date {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Styling for the add button */
+.add-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #457689;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #457689;
+}
+
+.add-button:active {
+  background-color: #457689; 
+}
+
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #484848;
+  border-radius: 8px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-family: 'DM Sans';
+}
+
+.searchInput {
+  flex-grow: 1;
+  margin-left: 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+.job-card {
+  width: 250px;
+  height: 140px;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-family: 'DM Sans';
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 60px;
+  margin-right: 5px;
+}
+
+.rupee-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.text-container .title {
+  font-size: 16px;
+  margin: 0;
+}
+
+.text-container .value {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.text-container .amount {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Custom card backgrounds */
+.req-estimate-card{
+  background: linear-gradient(to right, #A80000, #000000);
+} .estimate-card{
+  background: linear-gradient(to right, #457689, #000000);
+} 
+.estimate-reject-card{
+  background: linear-gradient(to right, #915a3c, #000000);
+}
+.RFD-card{
+  background: linear-gradient(to right, #ffc5d9, #000000);
+}
+.approval-card{
+  background: linear-gradient(to right, #e1c7a5, #000000);
+} 
+.delivered-card {
+  background: linear-gradient(to right, #457689, #000000);
+}
+
+.table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.headerRow {
+  font-weight: bold;
+  background: #f3f3f3;
+}
+
+.cell {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  color: #333;
+  text-align: left;
+}
+
+.statusCell {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.statusText {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+  .cardsContainer {
+      flex-direction: column;
+  }
+
+  .job-card {
+      max-width: 100%;
+  }
+
+  .row, .headerRow {
+      flex-wrap: wrap;
+  }
+
+  .cell {
+      flex: 1 1 100%;
+  }
+>>>>>>> 82c83fdff6fb2ff8f930ad3785608d12dc4631ab
 }
