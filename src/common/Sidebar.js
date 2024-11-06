@@ -46,7 +46,7 @@ const Sidebar = () => {
         {isExpanded && <span className="label">Job Cards</span>}
       </div>
 
-      <div className="sidebar-item" onClick={() => {toggleExpand('inventory');navigate("/Stockalert")}}>
+      <div className="sidebar-item" onClick={() => {toggleExpand('inventory');navigate("/Stock")}}>
         <span className="icon">👕</span>
         {isExpanded && <span className="label">Inventory</span>}
       </div>
