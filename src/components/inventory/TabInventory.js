@@ -1,47 +1,50 @@
 import React from 'react';
-import { Tabs, Tab, Box } from '@mui/material';
-import './Stock.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import './Inward.css';
 
 function TabInventory() {
-  // State to manage active tab
-  const [tabValue, setTabValue] = React.useState(0);
-
   const navigate = useNavigate();
+  const location = useLocation();
 
-  // Array of routes corresponding to each tab
+  // Define the routes for each tab
   const routes = [
-    '/Stock',   // Tabvalue 0     
-    '/Order',   // Tabvalue 1        
-    '/Inward',  // Tabvalue 2           
-    '/issued',  // Tabvalue 3           
-    '/Purchasereturn', // Tabvalue 4
-    '/Stockalert'  // Tabvalue 5     
+    '/Stock',          // Tab 0
+    '/Order',          // Tab 1
+    '/Inward',         // Tab 2
+    '/Issued',         // Tab 3
+    '/Purchasereturn', // Tab 4
+    // '/Stockalert'      // Tab 5
   ];
 
-  // Function to handle tab change and navigation
-  const handleTabChange = (event, newValue) => {
-    setTabValue(newValue);
-    navigate(routes[newValue]); 
+  // Determine the active tab based on the current route
+  const activeTab = routes.findIndex(route => location.pathname.startsWith(route));
+
+  // Function to handle tab click and navigation
+  const handleTabClick = (index) => {
+    navigate(routes[index]);
   };
 
   return (
-    <Box className="tabs">
-      <Tabs
-        value={tabValue} // Controlled tab value
-        onChange={handleTabChange} // Handle tab change and navigation
-        variant="scrollable"
-        scrollButtons="auto"
-        aria-label="stock tabs"
-      >
-        <Tab label="Stock" className={`tabButton ${tabValue === 0 ? 'activeTab' : ''}`} />
-        <Tab label="Order" className={`tabButton ${tabValue === 1 ? 'activeTab' : ''}`} />
-        <Tab label="Inward" className={`tabButton ${tabValue === 2 ? 'activeTab' : ''}`} />
-        <Tab label="Issued" className={`tabButton ${tabValue === 3 ? 'activeTab' : ''}`} />
-        <Tab label="Purchase Return" className={`tabButton ${tabValue === 4 ? 'activeTab' : ''}`} />
-        <Tab label="Stock Alert" className={`tabButton ${tabValue === 5 ? 'activeTab' : ''}`} />
-      </Tabs>
-    </Box>
+    <div className="tab-navigation">
+      <div className={`tab ${activeTab === 0 ? 'active-tab' : ''}`} onClick={() => handleTabClick(0)}>
+        Stock
+      </div>
+      <div className={`tab ${activeTab === 1 ? 'active-tab' : ''}`} onClick={() => handleTabClick(1)}>
+        Order
+      </div>
+      <div className={`tab ${activeTab === 2 ? 'active-tab' : ''}`} onClick={() => handleTabClick(2)}>
+        Inward
+      </div>
+      <div className={`tab ${activeTab === 3 ? 'active-tab' : ''}`} onClick={() => handleTabClick(3)}>
+        Issued
+      </div>
+      <div className={`tab ${activeTab === 4 ? 'active-tab' : ''}`} onClick={() => handleTabClick(4)}>
+        Purchase Return
+      </div>
+      {/* <div className={`tab ${activeTab === 5 ? 'active-tab' : ''}`} onClick={() => handleTabClick(5)}>
+        Stock Alert
+      </div> */}
+    </div>
   );
 }
 

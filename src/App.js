@@ -46,9 +46,8 @@ import Reminders from './components/workshop_profile/Reminder';
 import Associate from './components/workshop_profile/Associate';
 import Integrations from './components/workshop_profile/Integrations';
 import Users from './components/workshop_profile/Users';
-import Purchasereturn from './components/workshop_profile/Purchasereturn';
+import Purchasereturn from './components/inventory/Purchasereturn';
 import Reportsnavbar from './components/workshop_profile/Reportsnavbar';
-import Jobcardupdate from './components/workshop_profile/Jobcardupdate';
 
 
 function App() {
@@ -110,13 +109,12 @@ function App() {
                 <Route path="/Purchasereturn" element={<Purchasereturn />} />
                 <Route path="/Stockalert" element={<Stockalert />} />
                 <Route path="/Addorder" element={<Addorder />} />
-                <Route path="/Addinward" element={<Addinward />} />
+                <Route path="/Addinward" element={<Addinward />} /> 
                 <Route path="/Addissue" element={<Addissue />} />
                 <Route path="/Addreturn" element={<Addreturn />} />
-                <Route path="/Addstock" element={<Addstock />} />
                 <Route path="/Addtransfer" element={<Addtransfer />} />
+                <Route path="/Addstock" element={<Addstock />} />
                 <Route path="/Reportsnavnbar" element={<Reportsnavbar />} />
-                <Route path="/Jobcardupdate" element={<Jobcardupdate />} />
               </Routes>
             </div>
           </div>

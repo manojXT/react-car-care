@@ -1,28 +1,19 @@
-# Build stage
-FROM node:14 as build
+# Fetching the latest node image on alpine linux
+FROM node:alpine AS development
 
-# Set the working directory
+# Declaring env
+ENV NODE_ENV=development
+
+# Setting up the work directory
 WORKDIR /app
 
-# Copy package files and install dependencies
-COPY package.json package-lock.json ./
-RUN npm install --legacy-peer-deps
+# Installing dependencies
+COPY ./react-car-care/package*.json /app/
 
-# Copy all source code to the container
-COPY . .
+RUN npm install
 
-# Build the React application
-RUN npm run build
+# Copying all the files in our project
+COPY ./react-car-care /app/
 
-# Production stage
-FROM nginx:alpine
-
-# Copy the built React files from the build stage to the Nginx HTML directory
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Expose port 80 for web traffic
-EXPOSE 80
-
-# Run Nginx in the foreground
-CMD ["nginx", "-g", "daemon off;"]
-
+# Starting our application
+CMD ["npm", "start"]

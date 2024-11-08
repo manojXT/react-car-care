@@ -37,7 +37,7 @@ textarea {
 .submit-button {
   margin-top: 20px;
   padding: 10px 15px;
-  background-color: #4CAF50;
+  background-color: #457689;
   color: white;
   border: none;
   border-radius: 4px;
@@ -45,7 +45,8 @@ textarea {
 }
 
 .submit-button:hover {
-  background-color: #45a049;
+  background-color: #ffff;
+  color: #457689;
 }
 
 .footer {
@@ -54,7 +55,7 @@ textarea {
 
 .footerButton {
   padding: 10px 15px;
-  background-color: #007BFF;
+  background-color: #457689;
   color: white;
   border: none;
   border-radius: 4px;
@@ -62,7 +63,8 @@ textarea {
 }
 
 .footerButton:hover {
-  background-color: #0056b3;
+  background-color: #fff;
+  color: #457689;
 }
 
 .full-width {
