@@ -1,62 +1,79 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './Employee.css';
-import { FaUser, FaEye, FaEdit, FaTrash } from 'react-icons/fa';
+import { FaUser, FaEllipsisV, FaEye, FaEdit, FaTrash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-
-const Employees = [
-
-    {
-        id: 1,
-        firstName: 'Dharaa',
-        lastName: 'Bhalsod',
-        email: 'dhara2@dasinfomedia.com',
-        mobile: '9904898460',
-    },
-    // Add more Employee data here as needed
-];
 
 const EmployeeTable = () => {
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
-    const [entries, setEntries] = useState(10);
+    const [employees, setEmployees] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [isMenuOpen, setIsMenuOpen] = useState(null); // To track which row's menu is open
+    const entriesPerPage = 5; // Set number of entries per page
+
+    // Fetch employee data from the backend API
+    useEffect(() => {
+        axios.get('http://localhost:5000/api/employees')
+            .then((response) => {
+                setEmployees(response.data);
+            })
+            .catch((error) => {
+                console.error('Error fetching employee data:', error);
+            });
+    }, []);
 
     const handleSearch = (e) => {
         setSearchTerm(e.target.value);
     };
 
-    const handleEntriesChange = (e) => {
-        setEntries(e.target.value);
+    // Pagination controls
+    const totalPages = Math.ceil(employees.length / entriesPerPage);
+
+    const goToNextPage = () => {
+        if (currentPage < totalPages) {
+            setCurrentPage(currentPage + 1);
+        }
     };
 
-    const filteredEmployees = Employees.filter(
-        (Employee) =>
-            Employee.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            Employee.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            Employee.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            Employee.mobile.includes(searchTerm)
+    const goToPreviousPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
+    const filteredEmployees = employees.filter((employee) =>
+        employee.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        employee.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        employee.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        employee.mobile.includes(searchTerm)
     );
 
+    const currentEntries = filteredEmployees.slice(
+        (currentPage - 1) * entriesPerPage,
+        currentPage * entriesPerPage
+    );
+
+    const toggleMenu = (id) => {
+        setIsMenuOpen(isMenuOpen === id ? null : id);
+    };
+
     return (
-        <div className="Employee-table-container">
+        <div className="employee-table-container">
+             <p className="title">Employees</p>
             <div className="table-controls">
-                <div className="entries-control">
-                    <label>Show</label>
-                    <select value={entries} onChange={handleEntriesChange}>
-                        <option value={5}>5</option>
-                        <option value={10}>10</option>
-                        <option value={15}>15</option>
-                    </select>
-                    <span>entries</span>
-                </div>
-                
                 <div className="search-control">
-                    <label>Search:</label>
-                    <input type="text" value={searchTerm} onChange={handleSearch} placeholder="Search" />
+                    <input
+                        type="text"
+                        value={searchTerm}
+                        onChange={handleSearch}
+                        placeholder="Search"
+                    />
                     <button className="add-button" onClick={() => navigate('/Addemployee')}>+</button>
                 </div>
             </div>
 
-            <table className="Employee-table">
+            <table className="employee-table">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -69,38 +86,51 @@ const EmployeeTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredEmployees.slice(0, entries).map((Employee, index) => (
-                        <tr key={Employee.id}>
-                            <td>{index + 1}</td>
+                    {currentEntries.map((employee, index) => (
+                        <tr key={employee.id}>
+                            <td>{index + 1 + (currentPage - 1) * entriesPerPage}</td>
                             <td>
-                                <FaUser className="Employee-icon" />
+                                <FaUser className="employee-icon" />
                             </td>
-                            <td>{Employee.firstName}</td>
-                            <td>{Employee.lastName}</td>
-                            <td>{Employee.email}</td>
-                            <td>{Employee.mobile}</td>
+                            <td>{employee.firstName}</td>
+                            <td>{employee.lastName}</td>
+                            <td>{employee.email}</td>
+                            <td>{employee.mobile}</td>
                             <td className="action-buttons">
-                                <button className="view-btn">
-                                    <FaEye /> View
-                                </button>
-                                <button className="edit-btn">
-                                    <FaEdit /> Edit
-                                </button>
-                                <button className="delete-btn">
-                                    <FaTrash /> Delete
-                                </button>
+                                <div className="menu-container">
+                                    <FaEllipsisV
+                                        onClick={() => toggleMenu(employee.id)}
+                                        className="menu-icon"
+                                    />
+                                    {isMenuOpen === employee.id && (
+                                        <div className="menu-dropdown">
+                                            <button className="view-btn" onClick={() => navigate(`/view/${employee.id}`)}>
+                                                <FaEye /> View
+                                            </button>
+                                            <button className="edit-btn" onClick={() => navigate(`/edit/${employee.id}`)}>
+                                                <FaEdit /> Edit
+                                            </button>
+                                            <button className="delete-btn" onClick={() => console.log('Delete', employee.id)}>
+                                                <FaTrash /> Delete
+                                            </button>
+                                        </div>
+                                    )}
+                                </div>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
 
+            {/* Pagination Controls */}
             <div className="pagination">
-                <span>Showing 1 to {filteredEmployees.length} of {filteredEmployees.length} entries</span>
-                <div className="pagination-controls">
-                    <button className="pagination-btn">Previous</button>
-                    <button className="pagination-btn">Next</button>
-                </div>
+                <button onClick={goToPreviousPage} disabled={currentPage === 1}>
+                    &laquo;
+                </button>
+                <span>{currentPage} of {totalPages}</span>
+                <button onClick={goToNextPage} disabled={currentPage === totalPages}>
+                    &raquo;
+                </button>
             </div>
         </div>
     );

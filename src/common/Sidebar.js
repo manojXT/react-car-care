@@ -71,25 +71,25 @@ const Sidebar = () => {
         <img src={inventoryIcon} alt="Inventory" className="icon" />
         {isExpanded && <span className="label">Inventory</span>}
       </div>
-      {isExpanded && expandedSubmenu.inventory && (
+      {/* {isExpanded && expandedSubmenu.inventory && (
         <div className="sub-menu">
-          <div className="sub-item" onClick={() => handleMenuClick('inventory', '')}>Order</div>
-          <div className="sub-item" onClick={() => handleMenuClick('inventory', '')}>Inward</div>
-          <div className="sub-item" onClick={() => handleMenuClick('inventory', '')}>Issue</div>
-          <div className="sub-item" onClick={() => handleMenuClick('inventory', '')}>Purchase Return</div>
-          <div className="sub-item" onClick={() => handleMenuClick('inventory', '')}>Stock Transfer</div>
-          <div className="sub-item" onClick={() => handleMenuClick('inventory', '')}>Stock Alert</div>
-          <div className="sub-item" onClick={() => handleMenuClick('inventory', '')}>Upload Stock</div>
+          <div className="sub-item" onClick={() => handleMenuClick('inventory', '/Addorder')}>Order</div>
+          <div className="sub-item" onClick={() => handleMenuClick('inventory', '/Addinward')}>Inward</div>
+          <div className="sub-item" onClick={() => handleMenuClick('inventory', '/Addissue')}>Issue</div>
+          <div className="sub-item" onClick={() => handleMenuClick('inventory', '/Addreturn')}>Purchase Return</div>
+          <div className="sub-item" onClick={() => handleMenuClick('inventory', '/Addtransfer')}>Stock Transfer</div>
+          {/* <div className="sub-item" onClick={() => handleMenuClick('inventory', '')}>Stock Alert</div> 
+          <div className="sub-item" onClick={() => handleMenuClick('inventory', '/Addstock')}>Upload Stock</div>
         </div>
-      )}
+      )} */}
 
-      <div className="sidebar-item" onClick={() => handleMenuClick('billing', '')}>
+      <div className="sidebar-item" onClick={() => handleMenuClick('billing', '/bill')}>
         <img src={billingIcon} alt="Billing" className="icon" />
         {isExpanded && <span className="label">Billing</span>}
       </div>
       {isExpanded && expandedSubmenu.billing && (
         <div className="sub-menu">
-          <div className="sub-item" onClick={() => handleMenuClick('billing', '')}>Invoice</div>
+          <div className="sub-item" onClick={() => handleMenuClick('billing', '/newinvoice')}>Invoice</div>
           <div className="sub-item" onClick={() => handleMenuClick('billing', '/newbill')}>New Bill</div>
         </div>
       )}
@@ -105,13 +105,13 @@ const Sidebar = () => {
         </div>
       )} */}
 
-      <div className="sidebar-item" onClick={() => handleMenuClick('users', '')}>
+      <div className="sidebar-item" onClick={() => handleMenuClick('users', '/Employee')}>
         <img src={userIcon} alt="users" className="icon" />
-        {isExpanded && <span className="label">Users</span>}
+        {isExpanded && <span className="label">Users </span>}
       </div>
       {isExpanded && expandedSubmenu.users && (
         <div className="sub-menu">
-          <div className="sub-item" onClick={() => handleMenuClick('users', '/Employee')}>Employee</div>
+          {/* <div className="sub-item" onClick={() => handleMenuClick('users', '/Employee')}>Employee</div> */}
           <div className="sub-item" onClick={() => handleMenuClick('users', '/Jobqueue')}>Job Queue</div>
         </div>
       )}
