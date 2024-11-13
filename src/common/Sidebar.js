@@ -121,7 +121,7 @@ const Sidebar = () => {
         {isExpanded && <span className="label">Workshop Profile</span>}
       </div>
 
-      <div className="sidebar-item" onClick={() => handleMenuClick('reports', '')}>
+      <div className="sidebar-item" onClick={() => handleMenuClick('reports', '/Reportsemployee')}>
         <img src={reportsIcon} alt="Reports" className="icon" />
         {isExpanded && <span className="label">Reports</span>}
       </div>

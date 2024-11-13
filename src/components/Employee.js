@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+// import axios from 'axios';
 import './Employee.css';
 import { FaUser, FaEllipsisV, FaEye, FaEdit, FaTrash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
@@ -13,15 +13,15 @@ const EmployeeTable = () => {
     const entriesPerPage = 5; // Set number of entries per page
 
     // Fetch employee data from the backend API
-    useEffect(() => {
-        axios.get('http://localhost:5000/api/employees')
-            .then((response) => {
-                setEmployees(response.data);
-            })
-            .catch((error) => {
-                console.error('Error fetching employee data:', error);
-            });
-    }, []);
+    // useEffect(() => {
+    //     axios.get('http://localhost:5000/api/employees')
+    //         .then((response) => {
+    //             setEmployees(response.data);
+    //         })
+    //         .catch((error) => {
+    //             console.error('Error fetching employee data:', error);
+    //         });
+    // }, []);
 
     const handleSearch = (e) => {
         setSearchTerm(e.target.value);

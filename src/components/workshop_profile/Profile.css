@@ -1,31 +1,16 @@
 .profile-page {
-  font-family: Arial, sans-serif;
-  max-width: auto; /* Adjusted from auto to 100% */
+  font-family: "DM Sans", sans-serif;
 }
 
-.tabs nav ul li {
-  padding-top: 20px;
-  cursor: pointer;
+.title {
+  font-family: "DM Sans", sans-serif;
   font-weight: bold;
-  color: #707070;
-}
-
-.workshop-info {
-  text-align: right;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.contact-number {
-  display: block;
-  font-size: 14px;
-  color: #777;
 }
 
 .profile-form-container {
   display: flex;
-  flex-direction: row;
-  justify-content: left;
+  flex-direction: column;
+  align-items: flex-start; /* Align form and button to the left */
   margin-top: 20px;
 }
 
@@ -34,12 +19,10 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   max-width: 900px;
-  width: 100%;
 }
 
 .form-group {
   display: flex;
-  margin-left: 10px;
   flex-direction: column;
 }
 
@@ -56,32 +39,23 @@
   font-size: 16px;
 }
 
-.form-group input[type="date"] {
-  background-position: right 10px center;
-  background-size: 20px;
-  background-repeat: no-repeat;
+.submit-button {
+  margin-top: 20px;
+  margin-left: 50px;
+  padding: 10px 20px;
+  background-color: #457689;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.submit-button:hover {
+  background-color: #34596c;
 }
 
 @media (max-width: 768px) {
   .profile-form {
     grid-template-columns: 1fr;
   }
-
-  .tabs nav ul {
-    flex-direction: column;
-  }
-}
-
-.next-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.next-button:hover {
-  background-color: #0056b3;
 }

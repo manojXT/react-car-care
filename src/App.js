@@ -8,7 +8,6 @@ import Header from './common/Header';
 import Sidebar from './common/Sidebar';
 
 // import Loginpage from './components/Loginpage';
-// import ForgotPassword from './components/Forgotpassword';
 import Dashboard from './components/Dashboard';
 import Bookappointment from './components/Bookappointment';
 import Newappointment from './components/Newappointment';
@@ -40,14 +39,12 @@ import Access from './components/workshop_profile/Access';
 import Profile from './components/workshop_profile/Profile';
 import Workshop from './components/workshop_profile/Workshop';
 import SettingsPage from './components/workshop_profile/Settings';
-import SubscriptionTable from './components/workshop_profile/Subscription';
 import Termsandcondition from './components/workshop_profile/Terms and condition';
-import Reminders from './components/workshop_profile/Reminder';
-import Associate from './components/workshop_profile/Associate';
-import Integrations from './components/workshop_profile/Integrations';
 import Users from './components/workshop_profile/Users';
 import Purchasereturn from './components/inventory/Purchasereturn';
-import Reportsnavbar from './components/workshop_profile/Reportsnavbar';
+import Reportsemployee from './components/workshop_profile/Reportsemployee';
+import Reportsbill from './components/workshop_profile/Reportsbill';
+import Reportsinvoice from './components/workshop_profile/Reportsinvoice';
 
 
 function App() {
@@ -87,21 +84,16 @@ function App() {
                 <Route path="/addjobcard" element={<AddJobcard />} />
                 <Route path="/estimation" element={<Estimation />} />
                 <Route path="/newbill" element={<NewBill />} />
-                <Route path="/newinvoice" element={<NewInvoice />} />
-               
-                
+                <Route path="/newinvoice" element={<NewInvoice />} />       
 
                 <Route path="/Access" element={<Access />} />
-                <Route path="/TabInventory" element={<TabInventory />} />
                 <Route path="/Users" element={<Users />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/Workshop" element={<Workshop />} />
                 <Route path="/Settings" element={<SettingsPage />} />
-                <Route path="/Subscription" element={<SubscriptionTable />} />
-                <Route path="/Terms and condition" element={<Termsandcondition />} />
-                <Route path="/Reminders" element={<Reminders />} />
-                <Route path="/Associate" element={<Associate />} />
-                <Route path="/Integrations" element={<Integrations />} />
+                <Route path="/Terms_and_condition" element={<Termsandcondition />} />
+
+                <Route path="/TabInventory" element={<TabInventory />} />
                 <Route path="/Stock" element={<Stock />} />
                 <Route path="/Order" element={<Order />} />
                 <Route path="/Inward" element={<Inward />} />
@@ -114,7 +106,9 @@ function App() {
                 <Route path="/Addreturn" element={<Addreturn />} />
                 <Route path="/Addtransfer" element={<Addtransfer />} />
                 <Route path="/Addstock" element={<Addstock />} />
-                <Route path="/Reportsnavnbar" element={<Reportsnavbar />} />
+                <Route path="/Reportsemployee" element={<Reportsemployee />} />
+                <Route path="/Reportsbill" element={<Reportsbill />} />
+                <Route path="/Reportsinvoice" element={<Reportsinvoice />} />
               </Routes>
             </div>
           </div>

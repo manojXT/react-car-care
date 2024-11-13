@@ -132,8 +132,8 @@ const JobCard = () => {
 
         <div className="customerDetailsSection">
           <div className="detailsRow">
-            <input type="text" name='corporate' placeholder="Select Corporate / Fleet" className="detailsInput" />
-            <button className="addButton">+</button>
+            {/* <input type="text" name='corporate' placeholder="Select Corporate / Fleet" className="detailsInput" />
+            <button className="addButton">+</button> */}
             <input type="text" name='cust_name' placeholder="Customer Name *" className="detailsInput" />
             <button className="addButton">+</button>
             <input type="text" name='mobile_no' placeholder="Mobile Number (Preferably WhatsApp number) *" value={mobileNumber}

@@ -5,10 +5,10 @@ import Access from './Access';
 const Users = () => {
   const [users, setUsers] = useState([
     {
-      userName: 'axtest',
-      email: 'swathir@autorox.co',
-      mobile: '8247089593',
-      role: 'WORKSHOPADMIN',
+      userName: '',
+      email: '',
+      mobile: '',
+      role: '',
       status: {
         userDisable: false,
         reportsAccess: true,
@@ -18,21 +18,22 @@ const Users = () => {
         invoiceAccess: true,
       },
     },
-    {
-      userName: 'sparesax',
-      email: 'miraggogi.tsk@gmail.com',
-      mobile: '9999999999',
-      role: 'SERVICEADVISOR',
-      status: {
-        userDisable: false,
-        reportsAccess: true,
-        reportsDownload: true,
-        estimationPriceEdit: false,
-        paymentsCollection: false,
-        invoiceAccess: true,
-      },
-    },
   ]);
+
+  const [newUser, setNewUser] = useState({
+    userName: '',
+    email: '',
+    mobile: '',
+    role: '',
+    status: {
+      userDisable: false,
+      reportsAccess: false,
+      reportsDownload: false,
+      estimationPriceEdit: false,
+      paymentsCollection: false,
+      invoiceAccess: false,
+    },
+  });
 
   const toggleStatus = (index, key) => {
     const updatedUsers = [...users];
@@ -40,44 +41,99 @@ const Users = () => {
     setUsers(updatedUsers);
   };
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewUser((prevUser) => ({
+      ...prevUser,
+      [name]: value,
+    }));
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setUsers([...users, newUser]);
+    setNewUser({
+      userName: '',
+      email: '',
+      mobile: '',
+      role: '',
+      status: {
+        userDisable: false,
+        reportsAccess: false,
+        reportsDownload: false,
+        estimationPriceEdit: false,
+        paymentsCollection: false,
+        invoiceAccess: false,
+      },
+    });
+  };
+
   return (
     <div className="users-page">
+      <p className="title">Users</p>
       <Access />
-      <form className="user-form" onSubmit={(e) => e.preventDefault()}>
+      <form className="user-form" onSubmit={handleFormSubmit}>
         <div className="form-group">
           <label>Username</label>
-          <input type="text" placeholder="Enter Username" required />
+          <input
+            type="text"
+            name="userName"
+            placeholder="Enter Username"
+            value={newUser.userName}
+            onChange={handleInputChange}
+            required
+          />
         </div>
 
         <div className="form-group">
           <label>Password</label>
-          <input type="password" placeholder="Enter Password" required />
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter Password"
+            required
+          />
         </div>
 
         <div className="form-group">
           <label>Email</label>
-          <input type="email" placeholder="Enter Email" required />
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter Email"
+            value={newUser.email}
+            onChange={handleInputChange}
+            required
+          />
         </div>
 
         <div className="form-group">
           <label>Mobile No.</label>
-          <div className="mobile-group">
-            
-            <input type="tel" placeholder="+91 Mobile No." required />
-          </div>
+          <input
+            type="tel"
+            name="mobile"
+            placeholder="Mobile No."
+            value={newUser.mobile}
+            onChange={handleInputChange}
+            required
+          />
         </div>
 
         <div className="form-group">
           <label>Select User Role</label>
-          <select required>
-            <option>Select User Role</option>
-            <option>WORKSHOPADMIN</option>
-            <option>SERVICEADVISOR</option>
+          <select
+            name="role"
+            value={newUser.role}
+            onChange={handleInputChange}
+            required
+          >
+            <option value="">Select User Role</option>
+            <option value="WORKSHOPADMIN">WORKSHOPADMIN</option>
+            <option value="SERVICEADVISOR">SERVICEADVISOR</option>
             {/* Add more roles as necessary */}
           </select>
         </div>
 
-        
         <button type="submit" className="submit-btn">Submit</button>
       </form>
 
@@ -103,6 +159,7 @@ const Users = () => {
               <td>{user.email}</td>
               <td>{user.mobile}</td>
               <td>{user.role}</td>
+              <td>{user.date}</td>
               <td>
                 <input
                   type="checkbox"
@@ -138,13 +195,7 @@ const Users = () => {
                   onChange={() => toggleStatus(index, 'paymentsCollection')}
                 />
               </td>
-              <td>
-                <input
-                  type="checkbox"
-                  checked={user.status.invoiceAccess}
-                  onChange={() => toggleStatus(index, 'invoiceAccess')}
-                />
-              </td>
+             
             </tr>
           ))}
         </tbody>
