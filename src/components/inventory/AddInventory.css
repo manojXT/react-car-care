@@ -1,0 +1,215 @@
+/* Base Styles */
+.header-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 10px;
+  font-size: 14px;
+  flex: 1;
+}
+
+.searchRow input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.breadcrumbs {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.new-add-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.new-add-section input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.new-add-section .add-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #457689;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.new-add-section .add-btn:hover {
+  background-color: #fff;
+  color: #457689;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.orders-table th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+  color: #333;
+}
+
+.orders-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  background-color: #457689;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #335a70;
+}
+
+.pagination span {
+  margin-left: auto;
+  font-size: 14px;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  background-color: #457689;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .searchRow input[type="text"] {
+    width: 100%;
+  }
+
+  .new-add-section {
+    flex-direction: column;
+  }
+
+  .new-add-section input,
+  .new-add-section .add-btn {
+    width: 100%;
+  }
+
+  .pagination {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pagination button {
+    padding: 8px;
+  }
+
+  .pagination span {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+
+  .add-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-section {
+    align-items: center;
+  }
+
+  .breadcrumbs {
+    font-size: 12px;
+  }
+
+  .new-add-section {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .new-add-section input {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .orders-table th,
+  .orders-table td {
+    padding: 8px;
+  }
+
+  .pagination {
+    font-size: 12px;
+  }
+
+  .add-button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}

@@ -1,3 +1,4 @@
+/* Base Styles */
 .inventory-container {
   padding: 20px;
   font-family: 'DM Sans', sans-serif;
@@ -21,30 +22,12 @@
   color: #333;
 }
 
-.summary-section span {
-  font-weight: bold;
-}
-
 .tab-navigation {
   display: flex;
   justify-content: space-around;
   border-bottom: 1px solid #ccc;
   margin-bottom: 20px;
 }
-
-.tab{
-  padding: 10px 15px;
-  cursor: pointer;
-  color: #333;
-  font-weight: 500;
-}
-
-.active-tab {
-  border-bottom: 2px solid #333;
-  font-weight: bold;
-}
-
-
 
 .table-container {
   background-color: #fff;
@@ -53,25 +36,14 @@
   overflow-x: auto;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-th, td {
-  padding: 8px 12px;
-  text-align: left;
-  color: #333;
+.table-container {
+  min-width: 1000px;
 }
-
-th {
-  background-color: #e5e7eb;
-  font-weight: bold;
-}
-
-/* tr:nth-child(even) {
-  background-color: #f9fafb;
-} */
 
 .pagination {
   display: flex;
@@ -92,42 +64,6 @@ th {
   transition: background-color 0.3s;
 }
 
-.pagination button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.pagination button:hover:not(:disabled) {
-  background-color: #335a70;
-}
-
-.pagination span {
-  margin-left: auto;
-  font-size: 14px;
-}
-
-
-/* Make the table horizontally scrollable with hidden scrollbar */
-.table-wrapper {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch; 
-}
-
-.table-container {
-  min-width: 1000px; 
-}
-
-.table-wrapper::-webkit-scrollbar {
-  display: none; 
-}
-
-.table-wrapper {
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
-}
-
-
-/* For Stock Page */
 .filter-section {
   display: flex;
   align-items: center;
@@ -137,47 +73,12 @@ th {
   margin-bottom: 1.5rem;
 }
 
-/* Status Dropdown Styling */
-.status-dropdown {
-  min-width: 150px;
-  margin-right: 1rem;
-  font-size: 1rem;
-}
-
-/* Search Input Container */
 .search-input-container {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.search-input {
-  padding: 0.5rem 0.75rem;
-  font-size: 1rem;
-  /* border: 1px solid #ccc; */
-  border-radius: 4px;
-  width: 200px;
-}
-
-.filter-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 0.75rem;
-  background-color: #457689;
-  border: none;
-  border-radius: 4px;
-  color: #333;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.filter-button:hover {
-  background-color: #457689;
-}
-
-/* Export Button Styling */
 .export-button {
   display: flex;
   align-items: center;
@@ -191,34 +92,102 @@ th {
   transition: background-color 0.3s ease;
 }
 
-.export-button svg {
-  margin-left: 0.5rem;
+/* Responsive Styles */
+@media (max-width: 768px) {
+  /* Container and General Adjustments */
+  .inventory-container {
+    padding: 15px;
+  }
+
+  .summary-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .summary-section p {
+    font-size: 16px;
+  }
+
+  .tab-navigation {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-input-container {
+    width: 100%;
+  }
+
+  .status-dropdown,
+  .search-input,
+  .filter-button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .table-container {
+    padding: 5px;
+  }
+
+  /* Pagination Adjustments */
+  .pagination {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+  }
+
+  .pagination button {
+    padding: 8px;
+    font-size: 13px;
+  }
 }
 
-.export-button:hover {
-  background-color: #fff;
-  color: #457689;
+@media (max-width: 480px) {
+  .inventory-container {
+    padding: 10px;
+  }
+
+  .summary-section {
+    padding: 8px;
+    gap: 10px;
+  }
+
+  .summary-section p {
+    font-size: 14px;
+  }
+
+  .tab {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .table-container {
+    padding: 5px;
+  }
+
+  .table-wrapper {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  th, td {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .pagination button {
+    padding: 5px;
+    margin: 0 3px;
+    font-size: 12px;
+  }
+
+  .filter-button, .export-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
 }
-
-
-/* .pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.pagination button {
-  padding: 5px 10px;
-  margin: 0 5px;
-  cursor: pointer;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-}
-
-.pagination button:disabled {
-  background-color: #ddd;
-  cursor: not-allowed;
-} */
-

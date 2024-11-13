@@ -33,7 +33,7 @@ const NewBill = () => {
 
     return (
         <div className="new-bill-container">
-            <h2>Create New Bill</h2>
+            <p className='title'>New Bill</p>
             <form onSubmit={handleSubmit}>
                 <div className="form-grid">
                     <div className="form-group">

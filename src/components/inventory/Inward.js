@@ -3,8 +3,12 @@ import axios from 'axios';
 import './Inward.css'; 
 import { FaFilter } from 'react-icons/fa';
 import TabInventory from './TabInventory';
+import { useNavigate } from 'react-router-dom';
 
 const Inward = () => {
+
+  const navigate = useNavigate();
+
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
@@ -43,6 +47,7 @@ const Inward = () => {
 
   return (
     <div className="inventory-container">
+      <p className='title'>Inward</p>
 
       {/* Tab Navigation */}
      <TabInventory />
@@ -55,10 +60,13 @@ const Inward = () => {
 
       {/* Filter and Search */}
       <div className="filter-section">
-        <input type="text" placeholder="In Stock..." className="search-input" />
-        <button className="filter-button">
-          <FaFilter />
-        </button>
+        <div className='search-input-container'>
+          <input type="text" placeholder="In Stock..." className="search-input" />
+          <button className="filter-button">
+            <FaFilter />
+          </button>
+        </div>
+        <button className="add-button" onClick={() => navigate("/Addinward")}> + </button>
       </div>
 
       {/* Table */}

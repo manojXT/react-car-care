@@ -1,3 +1,202 @@
+/* General Styles */
+.inventory-container {
+  padding: 20px;
+  font-family: 'DM Sans', sans-serif;
+  background-color: #f5f6ff;
+  border-radius: 20px;
+  margin: auto;
+}
+
+/* Summary Section */
+.summary-section {
+  display: flex;
+  justify-content: space-around;
+  background-color: #e5e7eb;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.summary-section p {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.summary-section span {
+  font-weight: bold;
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #333;
+  font-weight: 500;
+}
+
+.active-tab {
+  border-bottom: 2px solid #333;
+  font-weight: bold;
+}
+
+/* Table Styles */
+.table-container {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px 12px;
+  text-align: left;
+  color: #333;
+}
+
+th {
+  background-color: #e5e7eb;
+  font-weight: bold;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-container {
+  min-width: 1000px;
+}
+
+.table-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.table-wrapper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  background-color: #457689;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #335a70;
+}
+
+.pagination span {
+  margin-left: auto;
+  font-size: 14px;
+}
+
+/* Filter Section for Stock Page */
+.filter-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+/* Status Dropdown */
+.status-dropdown {
+  min-width: 150px;
+  margin-right: 1rem;
+  font-size: 1rem;
+}
+
+/* Search Input Container */
+.search-input-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-input {
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  width: 200px;
+}
+
+/* Filter Button */
+.filter-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  background-color: #457689;
+  border: none;
+  border-radius: 4px;
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+  background-color: #457689;
+}
+
+/* Export Button */
+.export-button {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background-color: #457689;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.export-button svg {
+  margin-left: 0.5rem;
+}
+
+.export-button:hover {
+  background-color: #fff;
+  color: #457689;
+}
+
+/* Job Table Styles */
 .job-table-container {
   width: 90%;
   box-sizing: border-box;
@@ -37,7 +236,7 @@
 }
 
 .job-table th {
-  background-color: #f2f2f2;
+  background-color: #e5e7eb;
   font-weight: bold;
 }
 
@@ -74,13 +273,7 @@
   color: white;
 }
 
-.pagination {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-}
-
+/* Pagination Controls for Job Table */
 .pagination-controls {
   display: flex;
   gap: 5px;
@@ -98,36 +291,36 @@
   background-color: #bbb;
 }
 
-/* Responsive styles */
+/* Responsive Styles */
 @media (max-width: 768px) {
   .table-controls {
-      flex-direction: column;
-      gap: 10px;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .action-buttons {
-      flex-direction: column;
-      gap: 5px;
+    flex-direction: column;
+    gap: 5px;
   }
 }
 
 @media (max-width: 480px) {
   .job-table-container {
-      padding: 10px;
+    padding: 10px;
   }
 
   .job-table th,
   .job-table td {
-      font-size: 14px;
-      padding: 6px;
+    font-size: 14px;
+    padding: 6px;
   }
 
   .pagination-controls {
-      gap: 3px;
+    gap: 3px;
   }
 
   .pagination-btn {
-      font-size: 12px;
-      padding: 4px;
+    font-size: 12px;
+    padding: 4px;
   }
 }

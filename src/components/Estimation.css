@@ -1,20 +1,24 @@
 /* General Layout */
-.title{
+.title {
   display: flex;
   justify-content: flex-start;
-  size: 30px;
+  font-size: 20px;
   font-weight: bold;
+  margin-bottom: 15px;
 }
 
+/* Search Bar */
 .search-bar {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   padding: 10px;
   background-color: #f8f8f8;
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  flex-wrap: nowrap; 
+  overflow-x: auto; 
 }
 
 .input-group {
@@ -22,27 +26,25 @@
   align-items: center;
   border: 1px solid #ccc;
   border-radius: 4px;
-  padding: 4px 8px;
+  padding: 6px 10px;
   background-color: #fff;
 }
 
 .icon {
   color: #888;
-  margin-right: 4px;
+  margin-right: 6px;
 }
 
-/* Search Bar Inputs */
 .search-input {
   border: none;
   outline: none;
-  padding: 4px;
-  flex: 1; 
+  flex: 1;
 }
 
 .filter-select,
-.filter-input,
 .qty-input,
 .price-input,
+.price-select,
 .service-input,
 .discount-input {
   padding: 8px;
@@ -55,7 +57,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  padding: 8px 12px;
   background-color: #457689;
   color: #fff;
   border: none;
@@ -66,73 +68,51 @@
 }
 
 .add-button:hover {
-  background-color: #ffff;
+  background-color: #ffffff;
   color: #457689;
   border: 1px solid #335c6f;
 }
 
 /* Estimation Table */
+.estimation-container {
+  margin-top: 20px;
+}
+
 .estimation-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .estimation-table th,
 .estimation-table td {
   border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left; /* Align text to the start (left) */
+  padding: 10px;
 }
 
 .estimation-table th {
-  background-color: #f2f2f2; 
+  background-color: #e5e7eb;
   font-weight: bold;
 }
 
-.input-group .search-input,
-.qty-input,
-.price-input,
-.discount-input,
-.price-select {
-  padding: 6px;
-  box-sizing: border-box;
-}
-
-.discount-select {
-  padding: 4px;
-  margin-left: 4px;
-}
-
-.apply-discount td {
-  background-color: #f9f9f9;
-  font-weight: bold;
-}
-
-.right-align {
-  text-align: right;
-  padding-right: 12px;
-}
-
-.approval-dropdown {
-  width: 80%; 
-  padding: 4px;
-}
-
-/* Discount Row */
 .apply-discount {
-  text-align: left; /* Ensure it's left aligned for flex-start */
-  font-size: 12px;
-  background-color: #f9f9f9;
-  padding-left: 15px;
-  color: #666;
+  text-align: left;
+  font-size: 14px;
+  padding: 10px;
+  color: #333;
+  font-weight: bold;
 }
 
-/* Discount Input and Select */
-.discount-input,
-.discount-select {
-  width: 60px;
+.discount-input {
+  width: 50px;
   padding: 5px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.discount-select {
+  padding: 6px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -145,42 +125,131 @@
   font-weight: bold;
 }
 
-/* Footer Buttons */
-.footer-buttons {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 20px 0;
-}
-
-.footer-button {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 10px 20px;
-  background-color: #457689;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.footer-button:hover {
-  background-color: #335c6f;
-}
-
-/* Cancel Button */
 .cancel-button {
   background-color: #d9534f;
 }
 
 .cancel-button:hover {
-  background-color: #c9302c;
+  background-color: #fff;
+  color: #d9534f;
 }
 
-/* SVG Icon Size in Footer Buttons */
-.footer-button svg {
-  font-size: 16px;
+/* Print Options */
+.print-options {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.print-options button {
+  padding: 10px 15px;
+  background-color: #457689;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.print-options button:hover {
+  background-color: #335c6f;
+}
+
+/* Input Styling for File Upload */
+input[type="file"] {
+  display: none;
+}
+
+/* Approval Select */
+select {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+/* Service Type Input - Reduced size */
+.service-input {
+  width: 150px; 
+  padding: 6px;
+}
+
+/* Discount Button gap */
+.discount-input {
+  gap: 5px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  /* Adjustments for tablets and smaller screens */
+  .search-bar {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .add-button {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .print-options {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .print-options button {
+    width: 100%;
+  }
+
+  .service-input {
+    width: 100%;
+  }
+
+  .estimation-table th,
+  .estimation-table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .discount-input {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Adjustments for mobile devices */
+  .search-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .estimation-table th,
+  .estimation-table td {
+    font-size: 10px;
+    padding: 6px;
+  }
+
+  .apply-discount {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .discount-input {
+    width: 100%;
+    margin-right: 5px;
+  }
+
+  .discount-select {
+    width: 100%;
+  }
+
+  .print-options {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .print-options button {
+    width: 100%;
+  }
 }

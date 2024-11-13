@@ -1,6 +1,5 @@
-import React, { useState, useRef } from 'react';
-import axios from 'axios';
-import { FaPrint, FaSave, FaEnvelope, FaUpload, FaSearch, FaPlus } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaSearch, FaPlus } from 'react-icons/fa';
 import './Estimation.css';
 
 const Estimation = () => {
@@ -14,7 +13,6 @@ const Estimation = () => {
     
     const [partsList, setPartsList] = useState([]);
     
-    const fileInputRef = useRef(null);
 
     // Calculate the total discount amount
     const discountAmount = discount;
@@ -49,66 +47,6 @@ const Estimation = () => {
                 i === index ? { ...part, approval: newApproval } : part
             )
         );
-    };
-
-    const handlePrint = () => {
-        window.print();
-    };
-
-    const handleSave = async () => {
-        const estimationData = {
-            parts: partsList,
-            discount,
-            tax,
-            total: grandTotal,
-        };
-        try {
-            await axios.post('/api/estimations', estimationData);
-            alert("Estimation saved!");
-        } catch (error) {
-            console.error("There was an error saving the estimation!", error);
-            alert("Error saving estimation. Please try again.");
-        }
-    };
-
-    const handleEmail = () => {
-        const subject = "Estimation Details";
-        const body = "Please find the estimation details attached.";
-        window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    };
-
-    const handleUpload = () => {
-        fileInputRef.current.click();
-    };
-
-    const handleFileChange = async (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            const formData = new FormData();
-            formData.append('image', file);
-
-            try {
-                const response = await axios.post('/api/upload', formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                    },
-                });
-                alert(`Image uploaded: ${response.data.filePath}`);
-            } catch (error) {
-                console.error("There was an error uploading the image!", error);
-                alert("Error uploading image. Please try again.");
-            }
-        }
-    };
-
-    const handleCancel = () => {
-        setPartName('');
-        setQty(0);
-        setPrice(0);
-        setPartsList([]);
-        setTotal(0);
-        setDiscount(0);
-        setTax(0);
     };
 
     return (
@@ -206,23 +144,6 @@ const Estimation = () => {
                         </tr>
                     </tbody>
                 </table>
-            </div>
-
-            <div className="footer-buttons">
-                <button className="footer-button" onClick={handlePrint}>
-                    <FaPrint /> Print
-                </button>
-                <button className="footer-button" onClick={handleSave}>
-                    <FaSave /> Save
-                </button>
-                <button className="footer-button" onClick={handleEmail}>
-                    <FaEnvelope /> Email
-                </button>
-                <button className="footer-button" onClick={handleUpload}>
-                    <FaUpload /> Upload Image
-                </button>
-                <input type="file" accept="image/*" ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileChange} />
-                <button className="footer-button cancel-button" onClick={handleCancel}>Cancel Job Card</button>
             </div>
         </>
     );

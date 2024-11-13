@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaBars } from 'react-icons/fa';
+// import { FaBars } from 'react-icons/fa';
 import './Sidebar.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,7 +9,6 @@ import appointmentIcon from './dashboardicons/Appointment.png';
 import jobcardIcon from './dashboardicons/Jobcard.png';
 import billingIcon from './dashboardicons/Transactioins.png';
 import inventoryIcon from './dashboardicons/Inventory.png';
-// import customerIcon from './dashboardicons/Customer.png';
 import userIcon from './dashboardicons/Employees.png';
 import workshopIcon from './dashboardicons/Workshop profile.png';
 import reportsIcon from './dashboardicons/Reports.png';
@@ -23,15 +22,10 @@ const Sidebar = () => {
     jobCards: false,
     inventory: false,
     billing: false,
-    customer: false,
     users: false,
     workshopProfile: false,
     reports: false,
   });
-
-  const toggleSidebar = () => {
-    setIsExpanded((prev) => !prev);
-  };
 
   const toggleExpand = (item) => {
     setExpandedSubmenu((prev) => ({ ...prev, [item]: !prev[item] }));
@@ -47,10 +41,14 @@ const Sidebar = () => {
   };
 
   return (
-    <div className={`sidebar ${isExpanded ? 'expanded' : 'collapsed'}`}>
-      <button onClick={toggleSidebar} className="toggle-button">
+    <div
+      className={`sidebar ${isExpanded ? 'expanded' : 'collapsed'}`}
+      onMouseEnter={() => setIsExpanded(true)}  // Expand sidebar on hover
+      onMouseLeave={() => setIsExpanded(false)} // Collapse sidebar when mouse leaves
+    >
+      {/* <button onClick={() => setIsExpanded(!isExpanded)} className="toggle-button">
         <FaBars />
-      </button>
+      </button> */}
 
       <div className="sidebar-item" onClick={() => handleMenuClick('dashboard', '/dashboard')}>
         <img src={dashboardIcon} alt="Dashboard" className="icon" />
@@ -71,17 +69,6 @@ const Sidebar = () => {
         <img src={inventoryIcon} alt="Inventory" className="icon" />
         {isExpanded && <span className="label">Inventory</span>}
       </div>
-      {/* {isExpanded && expandedSubmenu.inventory && (
-        <div className="sub-menu">
-          <div className="sub-item" onClick={() => handleMenuClick('inventory', '/Addorder')}>Order</div>
-          <div className="sub-item" onClick={() => handleMenuClick('inventory', '/Addinward')}>Inward</div>
-          <div className="sub-item" onClick={() => handleMenuClick('inventory', '/Addissue')}>Issue</div>
-          <div className="sub-item" onClick={() => handleMenuClick('inventory', '/Addreturn')}>Purchase Return</div>
-          <div className="sub-item" onClick={() => handleMenuClick('inventory', '/Addtransfer')}>Stock Transfer</div>
-          {/* <div className="sub-item" onClick={() => handleMenuClick('inventory', '')}>Stock Alert</div> 
-          <div className="sub-item" onClick={() => handleMenuClick('inventory', '/Addstock')}>Upload Stock</div>
-        </div>
-      )} */}
 
       <div className="sidebar-item" onClick={() => handleMenuClick('billing', '/bill')}>
         <img src={billingIcon} alt="Billing" className="icon" />
@@ -94,24 +81,12 @@ const Sidebar = () => {
         </div>
       )}
 
-      {/* <div className="sidebar-item" onClick={() => handleMenuClick('customer', '')}>
-        <img src={customerIcon} alt="Customer" className="icon" />
-        {isExpanded && <span className="label">Customer</span>}
-      </div>
-      {isExpanded && expandedSubmenu.customer && (
-        <div className="sub-menu">
-          <div className="sub-item" onClick={() => handleMenuClick('customer', '')}>Manage</div>
-          <div className="sub-item" onClick={() => handleMenuClick('customer', '')}>PSF</div>
-        </div>
-      )} */}
-
       <div className="sidebar-item" onClick={() => handleMenuClick('users', '/Employee')}>
-        <img src={userIcon} alt="users" className="icon" />
-        {isExpanded && <span className="label">Users </span>}
+        <img src={userIcon} alt="Users" className="icon" />
+        {isExpanded && <span className="label">Users</span>}
       </div>
       {isExpanded && expandedSubmenu.users && (
         <div className="sub-menu">
-          {/* <div className="sub-item" onClick={() => handleMenuClick('users', '/Employee')}>Employee</div> */}
           <div className="sub-item" onClick={() => handleMenuClick('users', '/Jobqueue')}>Job Queue</div>
         </div>
       )}

@@ -1,24 +1,22 @@
 /* Sidebar container */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-
 .sidebar {
-  width: 60px; 
-  height: 100vh; 
+  width: 60px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
-  transition: width 0.3s ease; 
-  padding: 20px 0; 
-  color: #0396A6; 
-  position: fixed; 
+  transition: width 0.3s ease;
+  padding: 20px 0;
+  color: #0396A6;
+  position: fixed;
   left: 0;
   top: 0;
   overflow-y: auto;
-  overflow-x: hidden; 
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
-  border:  1px solid;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  border: 1px solid;
   border-top: none;
   border-left: none;
   box-shadow: 0 0 15px black;
@@ -27,89 +25,137 @@
   z-index: 1000;
 }
 
+/* Hide scrollbar */
 .sidebar::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
-.sidebar.expanded {
-  width: 220px; 
+/* Sidebar expands when mouse enters */
+.sidebar:hover {
+  width: 200px;
 }
 
-/* Toggle button (logo) */
-.toggle-button {
-  background: none; 
-  border: none;
-  font-size: 24px;
-  margin-bottom: 20px;
-  cursor: pointer; 
-  color: #0396A6; 
+.sidebar.collapsed {
+  width: 60px;
 }
 
 /* Sidebar items */
 .sidebar-item {
   display: flex;
-  align-items: center; 
-  width: 100%; 
-  padding: 12px 10px; 
-  cursor: pointer; 
+  align-items: center;
+  width: 100%;
+  padding: 12px 10px;
+  cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
-  color: #0396A6; 
-  border-radius: 5px; 
+  color: #0396A6;
+  border-radius: 5px;
 }
 
+/* Sidebar item hover effect */
 .sidebar-item:hover {
-  background-color: #0396A6; 
-  color: #ffffff; 
-}
-
-/* Accessibility focus styles */
-.sidebar-item:focus {
-  outline: none; 
-  box-shadow: 0 0 0 2px rgba(3, 150, 166, 0.5); 
+  background-color: #0396A6;
+  color: #ffffff;
 }
 
 /* Icon styling */
 .icon {
-  font-size: 24px; 
+  font-size: 24px;
+  margin-right: 10px;
+  transition: color 0.3s ease;
 }
 
-/* Label styling, hidden when collapsed */
-.label {
-  display: none; 
-  margin-left: 10px; 
-  color: #0396A6; 
-}
-
-.label:hover{
+/* Change icon color on sidebar item hover */
+.sidebar-item:hover .icon {
   color: #ffffff;
 }
 
-.sidebar.expanded .label {
-  display: inline; 
+/* Label styling, initially hidden when sidebar is collapsed */
+.label {
+  opacity: 0;
+  color: #0396A6;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Show label text on sidebar hover */
+.sidebar:hover .label {
+  opacity: 1;
+  color: #0396A6;
+}
+
+/* Label hover effect */
+.label:hover {
+  color: #ffffff;
+}
+
+/* Show label text on sidebar item hover */
+.sidebar-item:hover .label {
+  color: #ffffff; /* Ensures label changes to white on hover */
 }
 
 /* Sub-menu styling */
 .sub-menu {
-  display: flex; 
+  display: flex;
   flex-direction: column;
-  padding-left: 20px; 
-  margin-top: 5px; 
-  background-color: #ffffff; 
+  padding-left: 20px;
+  margin-top: 5px;
+  background-color: #ffffff;
 }
 
 /* Sub-item styling */
 .sub-item {
   padding: 5px 0;
-  color: #0396A6; 
+  color: #0396A6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .sub-item:hover {
-  color: white; 
-  background-color: #0396A6; 
-  border-radius: 5px; 
+  color: white;
+  background-color: #0396A6;
+  border-radius: 5px;
 }
 
-.sub-item:hover:not(.active){
-  background-color: #0396A6; 
-  color: white; 
+/* Responsive Sidebar Styling */
+
+/* For tablets and small laptops (max-width: 768px) */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 50px;
+  }
+
+  .sidebar:hover {
+    width: 180px;
+  }
+
+  .icon {
+    font-size: 20px;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+}
+
+/* For mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 50px;
+    padding: 15px 0;
+  }
+
+  .sidebar:hover {
+    width: 150px;
+  }
+
+  .icon {
+    font-size: 18px;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+
+  .sub-item {
+    font-size: 12px;
+  }
 }

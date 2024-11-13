@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import './Inward.css';
 import TabInventory from './TabInventory';
+import { useNavigate } from 'react-router-dom';
 
 const Order = () => {
+
+  const navigate = useNavigate();
+
   const [status, setStatus] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -13,10 +17,12 @@ const Order = () => {
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
+    setCurrentPage(1); // Reset to the first page when search term changes
   };
 
   const handleStatusChange = (selectedOption) => {
     setStatus(selectedOption);
+    setCurrentPage(1); // Reset to the first page when status changes
   };
 
   const statusOptions = [
@@ -42,12 +48,23 @@ const Order = () => {
     fetchOrders();
   }, []);
 
+  // Filter orders based on search term and status
+  const filteredOrders = orders.filter((order) => {
+    const matchesSearchTerm =
+      order.orderNo.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      order.vendorName.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    const matchesStatus = !status || order.status === status.value;
+
+    return matchesSearchTerm && matchesStatus;
+  });
+
   // Pagination logic
-  const totalItems = orders.length;
-  const totalInwarded = orders.reduce((sum, order) => sum + order.inwardedParts, 0);
+  const totalItems = filteredOrders.length;
+  const totalInwarded = filteredOrders.reduce((sum, order) => sum + order.inwardedParts, 0);
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentOrders = orders.slice(startIndex, startIndex + itemsPerPage);
+  const currentOrders = filteredOrders.slice(startIndex, startIndex + itemsPerPage);
 
   // Navigation
   const goToNextPage = () => {
@@ -64,16 +81,21 @@ const Order = () => {
 
   return (
     <div className="inventory-container">
+      <p className='title'>Order</p>
       {/* Tab Navigation */}
       <TabInventory />
 
       {/* Content Section */}
       <div>
-        {/* Search Bar */}
+        {/* Filter Section */}
         <div className="filter-section">
-          <input type="text" placeholder="Search..." className="search-input" value={searchTerm} onChange={handleSearchChange}/>
-          <Select className="stock-status-dropdown" value={status} onChange={handleStatusChange}
-            options={statusOptions} placeholder="Select Status" isClearable />
+          <div className="search-input-container">
+            <Select className="status-dropdown" options={statusOptions} placeholder="Select status"
+              isClearable onChange={handleStatusChange} value={status}/>
+            <input type="text" placeholder="Search orders..." className="search-input"
+              value={searchTerm} onChange={handleSearchChange}/>
+          </div>
+          <button className="add-button" onClick={() => navigate("/Addorder")}> + </button>
         </div>
 
         {loading ? (

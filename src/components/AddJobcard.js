@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import './AddJobcard.css';
-import { useNavigate } from 'react-router-dom';
 
-const JobCard = () => {
-  const navigate = useNavigate();
+const AddJobCard = () => {
 
   const [checked, setChecked] = useState(false);
   const [vehicleColor, setVehicleColor] = useState('');
@@ -132,8 +130,8 @@ const JobCard = () => {
 
         <div className="customerDetailsSection">
           <div className="detailsRow">
-            <input type="text" name='corporate' placeholder="Select Corporate / Fleet" className="detailsInput" />
-            <button className="addButton">+</button>
+            {/* <input type="text" name='corporate' placeholder="Select Corporate / Fleet" className="detailsInput" />
+            <button className="addButton">+</button> */}
             <input type="text" name='cust_name' placeholder="Customer Name *" className="detailsInput" />
             <button className="addButton">+</button>
             <input type="text" name='mobile_no' placeholder="Mobile Number (Preferably WhatsApp number) *" value={mobileNumber}
@@ -173,13 +171,8 @@ const JobCard = () => {
           </div>
         </div>
         </div>
-
-        <div className="footer">
-          <button className="footerButton">Give Estimation Later</button>
-          <button className="footerButton" onClick={() => navigate('/estimation')}>Prepare Estimation Now</button>
-        </div>
       </div>
   );
 };
 
-export default JobCard;
+export default AddJobCard;

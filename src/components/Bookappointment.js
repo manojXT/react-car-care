@@ -17,7 +17,7 @@ const Schedule = () => {
     return (
         <div className="schedule-container">
             <div className="controls">
-                <p className="appointment">Appointment</p>
+                <p className="appointment">Book Appointment</p>
                 <select className="staff-dropdown">
                     <option>Working staff</option>
                 </select>
