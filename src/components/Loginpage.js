@@ -59,15 +59,9 @@ export default function Loginpage() {
         .then((data) => {
           console.log(data)
           setLoading(false);  // Stop loading
-<<<<<<< HEAD
           if (data.response.status === 200) {
             setMessage('Login successful!');  
             navigate('/Jobcard');  
-=======
-          if (data.message === 'Login successful!') {
-            setMessage('Login successful!');  
-            navigate('/Dashboard');  
->>>>>>> 9df4cb9051c744976b42ebae953da11c5b4c845d
           } else {
             setErrors({ ...newErrors, custom_error: data.error });
           }

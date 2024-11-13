@@ -1,0 +1,173 @@
+/* Footer Container Styles */
+.footer-container {
+  display: flex;
+  gap: 10px;
+  padding: 12px 20px;
+  margin-left: 4%;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 5px;
+  z-index: 100;
+}
+
+.footer-left,
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-button {
+  padding: 8px 16px;
+  background-color: #457689;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-button:hover {
+  background-color: #365c6c;
+}
+
+.footer-right span {
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.autorox-logo {
+  height: 20px;
+  margin-left: 5px;
+}
+
+/* Warning Text for Technician Absence */
+.warning-text {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Print Options Modal Styling */
+.print-options {
+  position: absolute;
+  bottom: 60px;
+  left: 12%;
+  transform: translateX(-50%);
+  min-width: 200px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 4px;
+  z-index: 101;
+  flex-direction: column;
+  display: flex;
+}
+
+.print-options button {
+  padding: 10px;
+  margin: 5px;
+  background-color: #457689;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.print-options button:hover {
+  background-color: #365c6c;
+}
+
+/* File Input Hidden Button */
+input[type="file"] {
+  display: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 10px; 
+    padding: 15px;
+    align-items: center;
+  }
+
+  .footer-left,
+  .footer-right {
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .footer-button {
+    width: 100%; 
+    padding: 10px; 
+    text-align: center;
+  }
+
+  .footer-right span {
+    margin-right: 0;
+    margin-bottom: 5px; 
+  }
+
+  .back-button {
+    font-size: 14px; 
+  }
+
+  .print-options {
+    bottom: 60px;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Smaller Mobile Devices */
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 10px;
+    border-top-left-radius: 0;
+    box-shadow: none;
+  }
+
+  .footer-left,
+  .footer-right {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .footer-button {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .back-button {
+    font-size: 13px;
+  }
+
+  .print-options {
+    bottom: 50px;
+    width: 95%;
+    padding: 10px;
+  }
+}

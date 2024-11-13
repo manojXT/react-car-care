@@ -6,6 +6,7 @@
 }
 .appointment{
     font-weight:bold ;
+    font-size: 20px;
 }
 
 .controls {
@@ -43,7 +44,7 @@
 }
 
 .schedule-table thead th {
-    background-color: #f0f3f5;
+    background-color: #e5e7eb;
 }
 
 .schedule-table tbody td {

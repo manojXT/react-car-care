@@ -4,8 +4,12 @@ import { FiDownload } from 'react-icons/fi';
 import Select from 'react-select';
 import './Inward.css';
 import TabInventory from './TabInventory';
+import { useNavigate } from 'react-router-dom';
 
 const Stock = () => {
+
+  const navigate = useNavigate();
+
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -38,9 +42,9 @@ const Stock = () => {
 
   // Export function
   const handleExport = () => {
-    const csvHeaders = "Part NO.,Part Name,Brand,Category,QoH,Avg Purchase Price,Avg Selling Price,Tax Type,Tax %,Tax Amt,Rack No.,Ageing,Barcode\n";
+    const csvHeaders = "Part NO.,Part Name,Brand,Category,QoH,Avg Purchase Price,Avg Selling Price,Tax Type,Tax %,Tax Amt,Rack No.,Aging,Barcode\n";
     const csvContent = data.map(item =>
-      `${item.partNo},${item.partName},${item.brand},${item.category},${item.qoh},${item.avgPurchasePrice},${item.avgSellingPrice},${item.taxType},${item.taxPercentage},${item.taxAmount},${item.rackNo},${item.ageing},${item.barcode}`
+      `${item.partNo},${item.partName},${item.brand},${item.category},${item.qoh},${item.avgPurchasePrice},${item.avgSellingPrice},${item.taxType},${item.taxPercentage},${item.taxAmount},${item.rackNo},${item.aging},${item.barcode}`
     ).join('\n');
     const blob = new Blob([csvHeaders + csvContent], { type: 'text/csv' });
     const url = window.URL.createObjectURL(blob);
@@ -57,17 +61,16 @@ const Stock = () => {
 
   return (
     <div className="inventory-container">
+      <p className='title'>Stock List</p>
       {/* Tab Navigation */}
       <TabInventory />
 
       {/* Header with Stock Summary */}
-      <div className="header-section">
         <div className="summary-section">
           <span>Unique Part Nos: {data.length > 0 ? new Set(data.map(item => item.partNo)).size : 0}</span>
           <span>Total Stock Items: {totalStockItems}</span>
           <span>Stock Value: ₹{calculateStockValue()}</span>
         </div>
-      </div>
 
       {/* Filter Section */}
       <div className="filter-section">
@@ -81,6 +84,7 @@ const Stock = () => {
           <button className="filter-button">
             <FaFilter />
           </button>
+          <button className="add-button" onClick={() => navigate("/Addstock")}> + </button>
         </div>
         <button onClick={handleExport} className="export-button">
           Export <FiDownload />
@@ -104,7 +108,7 @@ const Stock = () => {
               <th>Tax %</th>
               <th>Tax Amt ₹</th>
               <th>Rack No.</th>
-              <th>Ageing</th>
+              <th>Aging</th>
               <th>Barcode</th>
             </tr>
           </thead>
@@ -128,7 +132,7 @@ const Stock = () => {
                   <td>{item.taxPercentage}</td>
                   <td>₹{item.taxAmount}</td>
                   <td>{item.rackNo}</td>
-                  <td>{item.ageing}</td>
+                  <td>{item.aging}</td>
                   <td>{item.barcode}</td>
                 </tr>
               ))

@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { FaFilter } from 'react-icons/fa';
 import './Inward.css';
 import TabInventory from './TabInventory';
+import { useNavigate } from 'react-router-dom';
 
 const Issue = () => {
+
+  const navigate = useNavigate();
+
   const [currentPage, setCurrentPage] = useState(1);
   const [issuedItems, setIssuedItems] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -48,6 +52,7 @@ const Issue = () => {
 
   return (
     <div className="inventory-container">
+      <p className='title'>Issue</p>
       {/* Tab Navigation */}
       <TabInventory />
 
@@ -55,10 +60,13 @@ const Issue = () => {
       <>
         {/* Search Bar and Filter */}
         <div className="filter-section">
-          <input type="text" placeholder="In Stock..." className="search-input" />
-          <button className="filter-button">
-            <FaFilter />
-          </button>
+          <div className='search-input-container'>
+            <input type="text" placeholder="In Stock..." className="search-input" />
+            <button className="filter-button">
+              <FaFilter />
+            </button>
+          </div>
+          <button className="add-button" onClick={() => navigate("/Addissue")}> + </button>
         </div>
 
         {/* Loading State */}

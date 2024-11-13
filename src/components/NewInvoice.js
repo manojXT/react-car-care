@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './NewInvoice.css'; 
+import './NewInvoice.css';
 import { useNavigate } from 'react-router-dom';
 
 const NewInvoice = () => {
@@ -35,7 +35,7 @@ const NewInvoice = () => {
 
     return (
         <div className="new-invoice-container">
-            <h2>Create New Invoice</h2>
+            <p className='title'>New Invoice</p>
             <form onSubmit={handleSubmit}>
                 <div className="form-grid">
                     <div className="form-group">
@@ -73,25 +73,13 @@ const NewInvoice = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="serviceDescription">Service Description *</label>
-                        <input 
-                            type="text" 
-                            id="serviceDescription" 
-                            placeholder="Service Description *" 
-                            value={serviceDescription}
-                            onChange={(e) => setServiceDescription(e.target.value)} 
-                            required
-                        />
+                        <input type="text" id="serviceDescription" placeholder="Service Description *" value={serviceDescription}
+                        onChange={(e) => setServiceDescription(e.target.value)} required/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="amount">Amount (₹) *</label>
-                        <input 
-                            type="number" 
-                            id="amount" 
-                            placeholder="Amount (₹) *" 
-                            value={amount} 
-                            onChange={(e) => setAmount(e.target.value)} 
-                            required
-                        />
+                        <input type="number" id="amount" placeholder="Amount (₹) *" value={amount} 
+                        onChange={(e) => setAmount(e.target.value)} required/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="paymentMethod">Payment Method *</label>
