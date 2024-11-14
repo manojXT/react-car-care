@@ -1,18 +1,16 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import './Access.css';
+import './Reports.css';
 
-function TabWorkshop() {
+function TabInventory() {
   const navigate = useNavigate();
   const location = useLocation();
 
   // Define the routes for each tab
   const routes = [
-    '/Profile',        // Tab 0
-    '/Users',          // Tab 1
-    '/Workshop',       // Tab 2
-    '/Settings',       // Tab 3
-    '/Terms_and_condition', // Tab 4
+    '/Reportsemployee',          // Tab 0
+    '/Reportsbill',          // Tab 1
+    '/Reportsinvoice',         // Tab 2
   ];
 
   // Determine the active tab based on the current route
@@ -26,23 +24,16 @@ function TabWorkshop() {
   return (
     <div className="tab-navigation">
       <div className={`tab ${activeTab === 0 ? 'active-tab' : ''}`} onClick={() => handleTabClick(0)}>
-        Profile
+        Employee
       </div>
       <div className={`tab ${activeTab === 1 ? 'active-tab' : ''}`} onClick={() => handleTabClick(1)}>
-        Users
+        Bill
       </div>
       <div className={`tab ${activeTab === 2 ? 'active-tab' : ''}`} onClick={() => handleTabClick(2)}>
-        Workshop
-      </div>
-      <div className={`tab ${activeTab === 3 ? 'active-tab' : ''}`} onClick={() => handleTabClick(3)}>
-        Settings
-      </div>
-      <div className={`tab ${activeTab === 4 ? 'active-tab' : ''}`} onClick={() => handleTabClick(4)}>
-        Terms and Conditions
+        Invoice
       </div>
     </div>
   );
 }
 
-export default TabWorkshop;
-
+export default TabInventory;

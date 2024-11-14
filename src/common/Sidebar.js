@@ -70,14 +70,13 @@ const Sidebar = () => {
         {isExpanded && <span className="label">Inventory</span>}
       </div>
 
-      <div className="sidebar-item" onClick={() => handleMenuClick('billing', '/bill')}>
+      <div className="sidebar-item" onClick={() => handleMenuClick('billing', '/Bill')}>
         <img src={billingIcon} alt="Billing" className="icon" />
         {isExpanded && <span className="label">Billing</span>}
       </div>
       {isExpanded && expandedSubmenu.billing && (
         <div className="sub-menu">
-          <div className="sub-item" onClick={() => handleMenuClick('billing', '/newinvoice')}>Invoice</div>
-          <div className="sub-item" onClick={() => handleMenuClick('billing', '/newbill')}>New Bill</div>
+          <div className="sub-item" onClick={() => handleMenuClick('billing', '/Invoice')}>Invoice</div>
         </div>
       )}
 
@@ -96,7 +95,7 @@ const Sidebar = () => {
         {isExpanded && <span className="label">Workshop Profile</span>}
       </div>
 
-      <div className="sidebar-item" onClick={() => handleMenuClick('reports', '')}>
+      <div className="sidebar-item" onClick={() => handleMenuClick('reports', '/Reportsemployee')}>
         <img src={reportsIcon} alt="Reports" className="icon" />
         {isExpanded && <span className="label">Reports</span>}
       </div>

@@ -128,47 +128,53 @@ const JobCard = () => {
                 />
             </div>
 
-            <div className="table">
-                <div className="row headerRow">
-                    <span className="cell">RFE No.</span>
-                    <span className="cell">Job Card No.</span>
-                    <span className="cell">Reg. No.</span>
-                    <span className="cell">Invoice No.</span>
-                    <span className="cell">Service Type</span>
-                    <span className="cell">Vehicle</span>
-                    <span className="cell">Status</span>
-                    <span className="cell">Customer Name</span>
-                    <span className="cell">Mobile No.</span>
-                    <span className="cell">Arrival Date</span>
-                    <span className="cell">Arrival Time</span>
-                </div>
-
-                {data
-                    .filter((item) =>
-                        item.customerName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                        item.mobileNo.includes(searchQuery) ||
-                        item.vehicle.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                        item.claimNo.toLowerCase().includes(searchQuery.toLowerCase())
-                    )
-                    .map((item) => (
-                        <div key={item.id} className="row">
-                            <span className="cell">{item.rfeNo}</span>
-                            <span className="cell">{item.jobCardNo}</span>
-                            <span className="cell">{item.regNo}</span>
-                            <span className="cell">{item.invoiceNo}</span>
-                            <span className="cell">{item.serviceType}</span>
-                            <span className="cell">{item.vehicle}</span>
-                            <span className="cell statusCell">
-                                <FontAwesomeIcon icon={faCircle} size="xs" color={item.statusColor} />
-                                <span className="statusText">{item.status}</span>
-                            </span>
-                            <span className="cell">{item.customerName}</span>
-                            <span className="cell">{item.mobileNo}</span>
-                            <span className="cell">{item.arrivalDate}</span>
-                            <span className="cell">{item.arrivalTime}</span>
-                        </div>
-                    ))}
+            <div className='table-container'>
+            <table>
+                <thead>
+                    <tr>
+                        <th>RFE No.</th>
+                        <th>Job Card No.</th>
+                        <th>Reg. No.</th>
+                        <th>Invoice No.</th>
+                        <th>Service Type</th>
+                        <th>Vehicle</th>
+                        <th>Status</th>
+                        <th>Customer Name</th>
+                        <th>Mobile No.</th>
+                        <th>Arrival Date</th>
+                        <th>Arrival Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data
+                        .filter((item) =>
+                            item.customerName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                            item.mobileNo.includes(searchQuery) ||
+                            item.vehicle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                            item.claimNo.toLowerCase().includes(searchQuery.toLowerCase())
+                        )
+                        .map((item) => (
+                            <tr key={item.id}>
+                                <td>{item.rfeNo}</td>
+                                <td>{item.jobCardNo}</td>
+                                <td>{item.regNo}</td>
+                                <td>{item.invoiceNo}</td>
+                                <td>{item.serviceType}</td>
+                                <td>{item.vehicle}</td>
+                                <td className="statusCell">
+                                    <FontAwesomeIcon icon={faCircle} size="xs" color={item.statusColor} />
+                                    <span className="statusText">{item.status}</span>
+                                </td>
+                                <td>{item.customerName}</td>
+                                <td>{item.mobileNo}</td>
+                                <td>{item.arrivalDate}</td>
+                                <td>{item.arrivalTime}</td>
+                            </tr>
+                        ))}
+                </tbody>
+            </table>
             </div>
+            
         </div>
     );
 };

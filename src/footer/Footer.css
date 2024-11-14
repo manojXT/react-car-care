@@ -1,5 +1,5 @@
 /* Footer Container Styles */
-.footer-container {
+/* .footer-container {
   display: flex;
   gap: 10px;
   padding: 12px 20px;
@@ -15,7 +15,7 @@
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
   border-top-left-radius: 5px;
   z-index: 100;
-}
+} */
 
 .footer-left,
 .footer-right {

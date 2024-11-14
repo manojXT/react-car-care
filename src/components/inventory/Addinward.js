@@ -238,8 +238,6 @@ const Addinward = () => {
                         </tbody>
                     </table>
                 </div>
-
-                <button type="submit" className="submit-button">Submit</button>
             </form>
         </div>
     );

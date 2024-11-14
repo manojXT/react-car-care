@@ -137,11 +137,11 @@ export default function Loginpage() {
             </div>
 
             <p className="forgot-password">
-              <a href="/Forgotpassword">Forgot Password?</a>
+              <a href="/Forgot_password">Forgot Password?</a>
             </p>
 
             {/* Submit Button */}
-            <button type="submit" disabled={loading}>
+            <button className='login-btn' type="submit" disabled={loading}>
               Login
             </button>
 

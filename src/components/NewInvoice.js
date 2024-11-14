@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import './NewInvoice.css';
-import { useNavigate } from 'react-router-dom';
 
 const NewInvoice = () => {
-    const navigate = useNavigate();
 
     const [invoiceNumber, setInvoiceNumber] = useState('');
     const [customerName, setCustomerName] = useState('');
@@ -128,9 +126,6 @@ const NewInvoice = () => {
                 </div>
                 <button type="submit" className="submit-button">Submit Invoice</button>
             </form>
-            <div className="footer">
-                <button className="footerButton" onClick={() => navigate('/home')}>Back to Home</button>
-            </div>
         </div>
     );
 };

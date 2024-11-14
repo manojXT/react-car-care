@@ -4,7 +4,6 @@ import './Estimation.css';
 
 const Estimation = () => {
     const [discount, setDiscount] = useState(0);
-    const [tax, setTax] = useState(0);
     const [total, setTotal] = useState(0);
     
     const [partName, setPartName] = useState('');
@@ -13,17 +12,10 @@ const Estimation = () => {
     
     const [partsList, setPartsList] = useState([]);
     
-
-    // Calculate the total discount amount
     const discountAmount = discount;
 
-    // Calculate the total tax amount
-    const taxAmount = (total - discountAmount) * (tax / 100);
+    const grandTotal = total - discountAmount;
 
-    // Function to calculate grand total
-    const grandTotal = total - discountAmount + taxAmount;
-
-    // Function to handle adding a new part
     const addPart = () => {
         if (partName && qty > 0 && price > 0) {
             const newPart = {
@@ -31,7 +23,7 @@ const Estimation = () => {
                 qty,
                 price,
                 total: qty * price, 
-                approval: "No" // Default approval to "No"
+                approval: "No"
             };
             setPartsList([...partsList, newPart]);
             setTotal(prevTotal => prevTotal + newPart.total);
@@ -60,7 +52,6 @@ const Estimation = () => {
                 </div>
                 <select className="filter-select">
                     <option>IN WORKSHOP</option>
-                    {/* Add other options if needed */}
                 </select>
                 <input type="number" placeholder="Qty" className="qty-input" value={qty} onChange={(e) => setQty(Number(e.target.value))} />
                 <input type="text" placeholder="Part Price" className="price-input"
@@ -101,7 +92,8 @@ const Estimation = () => {
                                 <td>Part No.</td>
                                 <td>{part.price.toFixed(2)}</td>
                                 <td>{discount.toFixed(2)}</td>
-                                <td>{tax.toFixed(2)}</td>
+                                <td>{part.tax}</td>
+                                {/* <td>{part.tax}</td> */}
                                 <td>{part.total.toFixed(2)}</td>
                                 <td>
                                     <select
@@ -124,23 +116,19 @@ const Estimation = () => {
                                     <option value="%">%</option>
                                 </select>
                             </td>
-                            <td colSpan="6"></td>
+                            <td colSpan="4"></td>
                         </tr>
                         <tr>
                             <td colSpan="10" className="right-align">Discount</td>
-                            <td colSpan="2" className="right-align">{discountAmount.toFixed(2)}</td>
-                        </tr>
-                        <tr>
-                            <td colSpan="10" className="right-align">Tax</td>
-                            <td colSpan="2" className="right-align">{taxAmount.toFixed(2)}</td>
+                            <td>{discountAmount.toFixed(2)}</td>
                         </tr>
                         <tr>
                             <td colSpan="10" className="right-align">Total</td>
-                            <td colSpan="2" className="right-align">{total.toFixed(2)}</td>
+                            <td>{total.toFixed(2)}</td>
                         </tr>
                         <tr>
                             <td colSpan="10" className="right-align">Grand Total</td>
-                            <td colSpan="2" className="right-align">{grandTotal.toFixed(2)}</td>
+                            <td>{grandTotal.toFixed(2)}</td>
                         </tr>
                     </tbody>
                 </table>

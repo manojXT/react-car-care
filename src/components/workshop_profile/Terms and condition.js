@@ -23,6 +23,7 @@ const Termsandcondition = () => {
 
   return (
     <div className="Terms and condition">
+      <p className='title'>Terms and condition</p>
       <Access />
       <div className="terms-and-conditions">
         <div className="toggle-container">

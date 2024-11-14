@@ -128,9 +128,7 @@ th {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
   border-radius: 8px;
-  margin-bottom: 1.5rem;
 }
 
 /* Status Dropdown */
