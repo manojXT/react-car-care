@@ -17,6 +17,7 @@ const SettingsPage = () => {
 
   return (
     <div className="settings">
+      <p className='title'>Settings</p>
       <Access />
       <div className="features-grid">
         {features.map((feature, index) => (

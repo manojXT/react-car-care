@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { FaFilter } from 'react-icons/fa';
 import './Inward.css';
 import TabInventory from './TabInventory';
+import { useNavigate } from 'react-router-dom';
 
 const PurchaseReturnTable = () => {
+
+  const navigate = useNavigate();
+
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -48,20 +52,24 @@ const PurchaseReturnTable = () => {
 
   return (
     <div className="inventory-container">
+      <p className='title'>Purchase Return</p>
        {/* Tab Navigation */}
       <TabInventory />
 
       {/* Search Bar and Filter */}
       <div className="filter-section">
-        <input type="text" placeholder="In Stock..." className="search-input" />
-        <button className="filter-button">
-          <FaFilter />
-        </button>
+        <div className='search-input-container'>
+          <input type="text" placeholder="In Stock..." className="search-input" />
+          <button className="filter-button">
+            <FaFilter />
+          </button>
+        </div>
+        <button className="add-button" onClick={() => navigate("/Addreturn")}> + </button>
       </div>
 
       {/* Scrollable Table */}
-      <div className="table-wrapper">
-        <table className="table-container">
+      <div className="table-container">
+        <table className="table-wrapper">
           <thead>
             <tr>
               <th>#</th>

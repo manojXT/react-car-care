@@ -2,8 +2,7 @@
 .dashboard-container {
     display: grid;
     padding: 20px;
-    margin: 40px;
-
+    /* margin: 40px; */
 }
 
 /* Grid layout for dashboard cards */

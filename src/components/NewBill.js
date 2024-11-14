@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import './NewBill.css'; // Make sure to create this CSS file for styles
-import { useNavigate } from 'react-router-dom';
+import './NewBill.css'; 
 
 const NewBill = () => {
-    const navigate = useNavigate();
 
     const [customerName, setCustomerName] = useState('');
     const [mobileNumber, setMobileNumber] = useState('');
@@ -33,7 +31,7 @@ const NewBill = () => {
 
     return (
         <div className="new-bill-container">
-            <h2>Create New Bill</h2>
+            <p className='title'>New Bill</p>
             <form onSubmit={handleSubmit}>
                 <div className="form-grid">
                     <div className="form-group">
@@ -84,9 +82,6 @@ const NewBill = () => {
                 </div>
                 <button type="submit" className="submit-button">Submit Bill</button>
             </form>
-            <div className="footer">
-                <button className="footerButton" onClick={() => navigate('/home')}>Back to Home</button>
-            </div>
         </div>
     );
 };

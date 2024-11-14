@@ -1,35 +1,42 @@
 /* Access.css */
 .users-page {
-    font-family: Arial, sans-serif; 
-     max-width:auto;
+    font-family:"DM Sans", sans-serif;
   
-}   
-
-.tabs nav ul li {
-  margin-right: 60px;
-  padding-top: 20px;
-  cursor: pointer;
+} 
+.title{
+  font-family: "DM Sans", sans-serif;
   font-weight: bold;
-  color: #707070;
+}  
+
+
+.tab-navigation {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
 }
 
-h2 {
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;  
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 10px;
+.tab{
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #333;
+  font-weight: 500;
 }
+
+.active-tab {
+  border-bottom: 2px solid #333;
+  font-weight: bold;
+}
+
 .user-form {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
   margin-bottom: 20px;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -63,7 +70,7 @@ h2 {
   grid-column: span 2;
   margin-right: 450px;
   padding: 10px ;
-  background-color: #007bff;
+  background-color: #457689;
   color: white;
   border: none;
   border-radius: 4px;
@@ -71,12 +78,11 @@ h2 {
 }
 
 .submit-btn:hover {
-  background-color: #0056b3;
+  background-color: #457689;
 }
 
 /* User Table */
 .user-table {
-  width: 100%;
   border-collapse: collapse;
 }
 
@@ -85,10 +91,11 @@ h2 {
   padding: 10px;
   border: 1px solid #ddd;
   text-align: center;
+  background-color: #fff;
 }
 
 .user-table th {
-  background-color: #f4f4f4;
+  background-color: #e5e7eb;
 }
 
 .user-table input[type="checkbox"] {

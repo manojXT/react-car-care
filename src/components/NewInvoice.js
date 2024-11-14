@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import './NewInvoice.css'; 
-import { useNavigate } from 'react-router-dom';
+import './NewInvoice.css';
 
 const NewInvoice = () => {
-    const navigate = useNavigate();
 
     const [invoiceNumber, setInvoiceNumber] = useState('');
     const [customerName, setCustomerName] = useState('');
@@ -35,7 +33,7 @@ const NewInvoice = () => {
 
     return (
         <div className="new-invoice-container">
-            <h2>Create New Invoice</h2>
+            <p className='title'>New Invoice</p>
             <form onSubmit={handleSubmit}>
                 <div className="form-grid">
                     <div className="form-group">
@@ -73,25 +71,13 @@ const NewInvoice = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="serviceDescription">Service Description *</label>
-                        <input 
-                            type="text" 
-                            id="serviceDescription" 
-                            placeholder="Service Description *" 
-                            value={serviceDescription}
-                            onChange={(e) => setServiceDescription(e.target.value)} 
-                            required
-                        />
+                        <input type="text" id="serviceDescription" placeholder="Service Description *" value={serviceDescription}
+                        onChange={(e) => setServiceDescription(e.target.value)} required/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="amount">Amount (₹) *</label>
-                        <input 
-                            type="number" 
-                            id="amount" 
-                            placeholder="Amount (₹) *" 
-                            value={amount} 
-                            onChange={(e) => setAmount(e.target.value)} 
-                            required
-                        />
+                        <input type="number" id="amount" placeholder="Amount (₹) *" value={amount} 
+                        onChange={(e) => setAmount(e.target.value)} required/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="paymentMethod">Payment Method *</label>
@@ -140,9 +126,6 @@ const NewInvoice = () => {
                 </div>
                 <button type="submit" className="submit-button">Submit Invoice</button>
             </form>
-            <div className="footer">
-                <button className="footerButton" onClick={() => navigate('/home')}>Back to Home</button>
-            </div>
         </div>
     );
 };

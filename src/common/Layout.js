@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
     <div className="layout">
       <Header username={username} onLogout={onLogout} />
       <Sidebar showSidebar={showSidebar} toggleSidebar={toggleSidebar} /> {/* Pass props */}
-      <div className={`main-content ${showSidebar ? 'shifted' : ''}`}> {/* Shifts main content */}
+      <div className={`main-content ${showSidebar ? 'shifted' : ''}`}> 
         <div className="page-content">{children}</div>
       </div>
     </div>

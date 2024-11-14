@@ -9,8 +9,8 @@ const EmployeeTable = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [employees, setEmployees] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [isMenuOpen, setIsMenuOpen] = useState(null); // To track which row's menu is open
-    const entriesPerPage = 5; // Set number of entries per page
+    const [isMenuOpen, setIsMenuOpen] = useState(null);
+    const entriesPerPage = 5;
 
     // Fetch employee data from the backend API
     useEffect(() => {
@@ -59,8 +59,8 @@ const EmployeeTable = () => {
     };
 
     return (
-        <div className="employee-table-container">
-             <p className="title">Employees</p>
+        <div>
+            <p className="title">Employees</p>
             <div className="table-controls">
                 <div className="search-control">
                     <input
@@ -98,10 +98,7 @@ const EmployeeTable = () => {
                             <td>{employee.mobile}</td>
                             <td className="action-buttons">
                                 <div className="menu-container">
-                                    <FaEllipsisV
-                                        onClick={() => toggleMenu(employee.id)}
-                                        className="menu-icon"
-                                    />
+                                    <FaEllipsisV onClick={() => toggleMenu(employee.id)} className="menu-icon"/>
                                     {isMenuOpen === employee.id && (
                                         <div className="menu-dropdown">
                                             <button className="view-btn" onClick={() => navigate(`/view/${employee.id}`)}>

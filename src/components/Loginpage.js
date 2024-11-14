@@ -59,15 +59,9 @@ export default function Loginpage() {
         .then((data) => {
           console.log(data)
           setLoading(false);  // Stop loading
-<<<<<<< HEAD
           if (data.response.status === 200) {
             setMessage('Login successful!');  
             navigate('/Jobcard');  
-=======
-          if (data.message === 'Login successful!') {
-            setMessage('Login successful!');  
-            navigate('/Dashboard');  
->>>>>>> 9df4cb9051c744976b42ebae953da11c5b4c845d
           } else {
             setErrors({ ...newErrors, custom_error: data.error });
           }
@@ -143,11 +137,11 @@ export default function Loginpage() {
             </div>
 
             <p className="forgot-password">
-              <a href="/Forgotpassword">Forgot Password?</a>
+              <a href="/Forgot_password">Forgot Password?</a>
             </p>
 
             {/* Submit Button */}
-            <button type="submit" disabled={loading}>
+            <button className='login-btn' type="submit" disabled={loading}>
               Login
             </button>
 
