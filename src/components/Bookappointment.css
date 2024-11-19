@@ -51,6 +51,11 @@
     height: 50px;
 }
 
+.schedule-table td.booked {
+    background-color: #ffcccc;
+    cursor: not-allowed;
+  }
+  
 @media (max-width: 768px) {
     .controls {
         flex-direction: column;

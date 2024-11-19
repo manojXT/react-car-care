@@ -1,155 +1,98 @@
 import React, { useState } from 'react';
 import './Loginpage.css';
 import { useNavigate } from 'react-router-dom';
+import amico from './Icons/amico.png';
 
-export default function Loginpage() {
-  const [inputs, setInputs] = useState({
-    username: '',
-    password: '',
-  });
-  const [errors, setErrors] = useState({
-    username: { required: false },
-    password: { required: false },
-    custom_error: null,
-  });
-  const [message, setMessage] = useState('');
-  const [loading, setLoading] = useState(false);
-
+const Login = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [message, setMessage] = useState('');  
   const navigate = useNavigate();
 
-  // Handle input changes
-  const handleInputChange = (event) => {
-    
-    setInputs({ ...inputs, [event.target.name]: event.target.value });
-    setErrors((prevErrors) => ({ ...prevErrors, [event.target.name]: { required: false }, custom_error: null }));
-  };
-
-  // Handle login submission
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    let newErrors = { username: { required: false }, password: { required: false }, custom_error: null };
-    let hasErrors = false;
+    // Reset the message before the API call
+    setMessage('');
 
-    // Basic form validation
-    if (inputs.username === '') {
-      newErrors.username.required = true;
-      hasErrors = true;
-    }
-    if (inputs.password === '') {
-      newErrors.password.required = true;
-      hasErrors = true;
-    }
-
-    if (!hasErrors) {
-      console.log('inputs chnaged:', inputs.username, inputs.password)
-      setLoading(true);
-      // Sending JSON request to backend
-      fetch('http://192.168.0.103:5000/login', {
+    try {
+      const response = await fetch('http://localhost:5000/login', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          username: inputs.username,
-          password: inputs.password,
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data)
-          setLoading(false);  // Stop loading
-          if (data.response.status === 200) {
-            setMessage('Login successful!');  
-            navigate('/Jobcard');  
-          } else {
-            setErrors({ ...newErrors, custom_error: data.error });
-          }
-        })
-        .catch((error) => {
-          setLoading(false);  // Stop loading
-          setErrors({ ...newErrors, custom_error: 'Error: ' + error.message });
-        });
-    } else {
-      setErrors(newErrors);
+        body: JSON.stringify({ username, password }),
+      });
+
+      // Check if the response is successful
+      if (response.ok) {
+        const data = await response.json();
+        setMessage('Login successful!');  
+        console.log('API response:', data);
+        navigate('/Dashboard');
+      } else {
+        // Handle errors if the status code is not successful
+        const errorData = await response.json();
+        setMessage(errorData.message || 'Login failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      setMessage('An error occurred. Please try again later.');
     }
   };
 
+  const handleReset = () => {
+    setUsername('');
+    setPassword('');
+    setMessage(''); 
+  };
+
   return (
-    <section className="login-block">
-      <div className="row">
-        <div className="image col">
-          <img
-            src="https://via.placeholder.com/500"
-            alt="Login Illustration"
-            className="image-side"
-          />
-        </div>
-        <div className="col login-sec">
-          <form onSubmit={handleLogin} className="login-form">
-            <h2 className="text-center">LOGIN NOW</h2>
-
-            {/* Username Field */}
-            <div className="form-group">
-              <label htmlFor="username" className="text-uppercase"> Username or Phone Number </label>
-              <input
-                type="text"
-                className="form-control"
-                name="username"
-                value={inputs.username}
-                onChange={handleInputChange}
-                placeholder="Enter your username or phone number"
-              />
-              {errors.username.required && (
-                <span className="text-danger">Username or phone number is required.</span>
-              )}
+    <div className="login-container">
+      <div className="left-panel">
+        <img src={amico} alt="Logo" className="logo" />
+      </div>
+      <div className="right-panel">
+        <div className="login-box">
+          <h2>Welcome !</h2>
+          <h3>Sign in to</h3>
+          <h4>KG Car Care</h4>
+          <form onSubmit={handleLogin}>
+            <div className="login-section">
+              <label htmlFor="username">Username</label>
+              <input type="text" className="user-field" id="username" placeholder="Enter your user name"
+                value={username} onChange={(e) => setUsername(e.target.value)}/>
             </div>
-
-            {/* Password Field */}
-            <div className="form-group">
-              <label htmlFor="password" className="text-uppercase"> Password </label>
-              <input
-                type="password"
-                className="form-control"
-                name="password"
-                value={inputs.password}
-                onChange={handleInputChange}
-                placeholder="Enter your password"
-                maxLength={8}
-              />
-              {errors.password.required && (
-                <span className="text-danger">Password is required.</span>
-              )}
+            <div className="login-section">
+              <label htmlFor="password">Password</label>
+              <div className="password-container">
+                <input type={showPassword ? 'text' : 'password'} className="password-field" id="password" placeholder="Enter your password"
+                  value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <button type="button" className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
+                  {showPassword ? '🙈' : '👁️'}
+                </button>
+              </div>
             </div>
-
-            {/* Error or Loading Indicator */}
-            <div className="form-group">
-              {loading && (
-                <div className="text-center">
-                  <div className="spinner-border text-primary" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                  </div>
-                </div>
-              )}
-              {errors.custom_error && (
-                <span className="text-danger">{errors.custom_error}</span>
-              )}
+            <div className="login-options">
+              <label>
+                <input type="checkbox" />
+                Remember me
+              </label>
+              <a href="Forgotpassword" className="forgot-password">
+                Forgot Password?
+              </a>
             </div>
-
-            <p className="forgot-password">
-              <a href="/Forgot_password">Forgot Password?</a>
-            </p>
-
-            {/* Submit Button */}
-            <button className='login-btn' type="submit" disabled={loading}>
-              Login
-            </button>
-
-            {/* Success or Error Message */}
-            {message && <p className="text-success">{message}</p>}
+            <button type="submit" className="login-button">Login</button>
+            <button type="button" className="reset-button" onClick={handleReset}>Reset</button>
           </form>
+
+          {/* Display success or error message */}
+          {message && <p className="message">{message}</p>}
         </div>
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default Login;

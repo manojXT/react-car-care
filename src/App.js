@@ -8,8 +8,8 @@ import Header from './common/Header';
 import Sidebar from './common/Sidebar';
 
 // Main Components
-// import Login from './components/Loginpage';
-// import ForgotPassword from './components/Forgotpassword';
+import Login from './components/Loginpage';
+import ForgotPassword from './components/Forgotpassword';
 import Dashboard from './components/Dashboard';
 import Bookappointment from './components/Bookappointment';
 import Newappointment from './components/Newappointment';
@@ -72,26 +72,26 @@ import FooterReturn from './footer/FooterReturn';
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
-  // const [isLoggedIn, setIsLoggedIn] = useState(false); 
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
   const toggleSidebar = () => {
     setShowSidebar(prevState => !prevState);
   };
 
-  // const handleLogin = () => {
-  //   setIsLoggedIn(true); 
-  // };
+  const handleLogin = () => {
+    setIsLoggedIn(true); 
+  };
 
 
   return (
     <Router>
 
-       {/* <Routes>
-        <Route path="/" element={<Loginpage onLogin={handleLogin} />} />
+      <Routes>
+        <Route path="/" element={<Login onLogin={handleLogin} />} />
         <Route path="/Forgotpassword" element={<ForgotPassword/>} />
-      </Routes> */}
+      </Routes>
       
-       {/* {isLoggedIn && ( */}
+       {isLoggedIn && (
       <div className="app">
         <Header />
         <div className="main-layout">
@@ -167,7 +167,7 @@ function App() {
           <Route path="*" element={<Footer />} /> {/* Default footer for all pages */}
         </Routes>
       </div>
-      {/* )} */}
+      )}  
     </Router>
   );
 }

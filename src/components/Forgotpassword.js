@@ -87,7 +87,7 @@ const ForgotPasswordWithOTP = () => {
             placeholder="Enter your mobile number"
             required
           />
-          <button type="submit" className="submit-button">Send OTP</button>
+          <button type="submit" className="Reset-button">Send OTP</button>
         </form>
       )}
 
@@ -123,7 +123,7 @@ const ForgotPasswordWithOTP = () => {
             required
           />
 
-          <button type="submit" className="submit-button">Reset Password</button>
+          <button type="submit" className="Reset-button">Reset Password</button>
         </form>
       )}
 
